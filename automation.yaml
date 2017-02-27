@@ -1,0 +1,15 @@
+- alias: Allume la lampe a la tombee de la nuit
+  trigger:
+    platform: sun
+    event: sunset
+    offset: "-00:05:00"
+  condition:
+#    - condition: state
+#    entity_id: device_tracker.nut
+#    state: home
+    condition: state
+    entity_id: input_boolean.lumieresalon
+    state: 'on'
+  action:
+    service: switch.turn_on
+    entity_id: switch.lampe_salon

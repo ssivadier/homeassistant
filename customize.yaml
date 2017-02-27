@@ -1,0 +1,9 @@
+sensor.yweather_humidity:
+  friendly_name: Humidité
+  icon: mdi:water-percent
+sensor.broadlink_sensor_temperature:
+  friendly_name: Temperature
+  icon: mdi:temperature-celsius
+sensor.broadlink_sensor_humidity:
+  friendly_name: Humidité
+  icon: mdi:water-percent

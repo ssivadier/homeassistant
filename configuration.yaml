@@ -1,0 +1,104 @@
+homeassistant:
+  name: Home
+  latitude: 44.8101
+  longitude: -0.6413
+  elevation: 39
+  unit_system: metric
+  time_zone: Europe/Paris
+
+base_url: 192.168.0.28:8123
+
+#introduction:
+
+frontend:
+
+http:
+  # Uncomment this to add a password (recommended!)
+  # api_password: PASSWORD
+  # Uncomment this if you are using SSL or running in Docker etc
+  # base_url: example.duckdns.org:8123
+
+updater:
+
+discovery:
+
+conversation:
+
+history:
+
+logbook:
+
+sun:
+
+#device_tracker:
+#  - platform: bluetooth_le_tracker
+
+sensor: !include sensor.yaml
+
+customize: !include customize.yaml
+
+tts:
+  platform: google
+  language: 'fr'
+  cache: true
+  cache_dir: /tmp/tts
+  time_memory: 300
+
+switch:
+  - platform: broadlink
+    host: 192.168.0.25
+    mac: '34:ea:34:e7:d3:de'
+    name: 'switch broadlink'
+    switches:
+      tv_lg:
+        friendly_name: 'TV LG Salon'
+        command_on: 'JgBQAAABJ5MTEhISEzcTEhMSExETEhMSEzYUNhMSEzYTNxM3EzYTNxMSExETEhM3ExITERMSExITNxM2EzcTEhM2EzcTNhM3EwAFQQABJ0gTAA0FAAAAAAAAAAA='
+        command_off: 'JgBQAAABJ5MTEhISEzcTEhMSExETEhMSEzYUNhMSEzYTNxM3EzYTNxMSExETEhM3ExITERMSExITNxM2EzcTEhM2EzcTNhM3EwAFQQABJ0gTAA0FAAAAAAAAAAA='
+  - platform: broadlink
+    host: 192.168.0.12
+    mac: '34:ea:34:d9:f1:92'
+    type: mp1-1
+    friendly_name: 'Lampe Salon'
+  - platform: broadlink
+    host: 192.168.0.12
+    mac: '34:ea:34:d9:f1:92'
+    type: mp1-2
+    name: wii
+    friendly_name: 'Wii'
+  - platform: broadlink
+    host: 192.168.0.12
+    mac: '34:ea:34:d9:f1:92'
+    type: mp1-3
+    friendly_name: 'Box Tele'
+  - platform: broadlink
+    host: 192.168.0.12
+    mac: '34:ea:34:d9:f1:92'
+    type: mp1-4
+    friendly_name: 'Television'
+
+group: !include group.yaml
+
+automation: !include automation.yaml
+
+media_player:
+  - platform: vlc
+
+input_boolean:
+  bonjour:
+    name: Service bonjour
+    initial: on
+    icon: mdi:comment-text
+  lumieresalon:
+    name: Lumiere auto salon
+    initial: on
+
+script:
+  annoncematin:
+    alias: Matin
+    sequence:
+      - alias: Annonce Matin
+        service: tts.google_say
+        entity_id: media_player.vlc
+        data_template:
+          message: "{{ ['Bonjour','Comment allez vous?','Heureux de vous voir'] | random }} . La météo prévoit, {{ states.sensor.meteotoday.state }} pour aujourd'hui. La température extérieure est de {{ states.sensor.tempext_temperature.state | round }} degrés."
+

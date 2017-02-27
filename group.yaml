@@ -1,0 +1,59 @@
+  default_view:
+    view: yes
+    icon: mdi:home
+    entities:
+      - group.meteo
+      - group.sonde1
+      - group.ymeteo
+      - group.ymeteotoday
+      - group.automations
+  salon:
+    name: salon
+    view: yes
+    entities:
+      - group.sonde1
+      - group.prisesalon
+      - media_player.vlc
+#      - group.tvlg
+#  tvlg:
+#    name: tv du salon
+#    entitites:
+#      - switch.tv_lg
+  sonde1:
+    name: Sonde du salon
+    entities:
+      - sensor.broadlink_sensor_temperature
+      - sensor.broadlink_sensor_humidity
+      - sensor.broadlinkair
+      - sensor.broadlinknoise
+      - sensor.broadlinklight
+  prisesalon:
+    name: multiprise du salon
+    entities:
+      - switch.lampe_salon
+      - switch.wii
+      - switch.box_tele
+      - switch.television
+  ymeteo:
+    name: Meteo demain
+    entities:
+      - sensor.forecast
+      - sensor.globaltemp
+      - sensor.yweather_humidity
+      - sensor.yweather_wind_speed
+      - sensor.yweather_visibility
+  ymeteotoday:
+    name: Meteo du jour    
+    entities:
+      - sensor.sun_state
+      - sensor.meteotoday
+      - sensor.ymeteotoday_humidity
+      - sensor.ymeteotoday_temperature
+      - sensor.ymeteotoday_wind_speed
+      - sensor.ymeteotoday_visibility
+  automations:
+    name: Automations
+    entities:
+      - input_boolean.bonjour
+      - input_boolean.lumieresalon
+

@@ -1,0 +1,5 @@
+../gattlib.cpython-34m.so
+SOURCES.txt
+top_level.txt
+PKG-INFO
+dependency_links.txt

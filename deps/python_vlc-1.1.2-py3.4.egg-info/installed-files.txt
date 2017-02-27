@@ -1,0 +1,6 @@
+../vlc.py
+../__pycache__/vlc.cpython-34.pyc
+SOURCES.txt
+top_level.txt
+PKG-INFO
+dependency_links.txt
