@@ -2,14 +2,17 @@
   trigger:
     platform: sun
     event: sunset
-    offset: "-00:05:00"
+    offset: "-00:10:00"
   condition:
 #    - condition: state
 #    entity_id: device_tracker.nut
 #    state: home
-    condition: state
-    entity_id: input_boolean.lumieresalon
-    state: 'on'
+    - condition: state
+      entity_id: input_boolean.lumieresalon
+      state: 'on'
+    - condition: state
+      entity_id: sensor.broadlinklight 
+      state: 'noir'
   action:
     service: switch.turn_on
     entity_id: switch.lampe_salon

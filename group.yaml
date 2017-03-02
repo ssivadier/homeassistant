@@ -14,6 +14,7 @@
       - group.sonde1
       - group.prisesalon
       - media_player.vlc
+      - media_player.cast
 #      - group.tvlg
 #  tvlg:
 #    name: tv du salon
@@ -32,28 +33,30 @@
     entities:
       - switch.lampe_salon
       - switch.wii
-      - switch.box_tele
       - switch.television
-  ymeteo:
-    name: Meteo demain
-    entities:
-      - sensor.forecast
-      - sensor.globaltemp
-      - sensor.yweather_humidity
-      - sensor.yweather_wind_speed
-      - sensor.yweather_visibility
+      - switch.chromecast
+      - script.demarre_tv_cast
+#  ymeteo:
+#    name: Meteo demain
+#    entities:
+#      - sensor.forecast
+#      - sensor.globaltemp
+#      - sensor.yweather_humidity
+#      - sensor.yweather_wind_speed
+#      - sensor.yweather_visibility
   ymeteotoday:
-    name: Meteo du jour    
+    name: Meteo    
     entities:
       - sensor.sun_state
       - sensor.meteotoday
-      - sensor.ymeteotoday_humidity
-      - sensor.ymeteotoday_temperature
-      - sensor.ymeteotoday_wind_speed
-      - sensor.ymeteotoday_visibility
+      - sensor.yweather_humidity
+      - sensor.yweather_temperature
+      - sensor.yweather_wind_speed
+      - sensor.yweather_visibility
   automations:
     name: Automations
     entities:
       - input_boolean.bonjour
       - input_boolean.lumieresalon
-
+      - script.demarre_robot_aspi
+      - script.volet_chambre_parents

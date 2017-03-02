@@ -8,23 +8,24 @@
     - air_quality
     - light
     - noise
+#- platform: yweather
+#  woeid: 22145400
+#  forecast: 1
+#  monitored_conditions:
+#    - weather
+#    - weather_current
+#    - temp_min
+#    - temp_max
+#    - wind_speed
+#    - pressure
+#    - visibility
+#    - humidity
+#    - temperature
 - platform: yweather
   woeid: 22145400
-  forecast: 1
+#  name: ymeteotoday
   monitored_conditions:
     - weather
-    - weather_current
-    - temp_min
-    - temp_max
-    - wind_speed
-    - pressure
-    - visibility
-    - humidity
-    - temperature
-- platform: yweather
-  woeid: 22145400
-  name: ymeteotoday
-  monitored_conditions:
     - wind_speed
     - visibility
     - humidity
@@ -390,3 +391,8 @@
       value_template: '{% if is_state("sun.sun", "above_horizon") %}levé{% else %}couché{% endif %}'
       friendly_name: 'Etat du soleil'
       icon_template: '{% if is_state("sun.sun", "above_horizon") %}mdi:weather-sunny{% else %}mdi:weather-night{% endif %}'
+- platform: mold_indicator
+  indoor_temp_sensor: sensor.broadlink_sensor_temperature
+  indoor_humidity_sensor: sensor.broadlink_sensor_humidity
+  outdoor_temp_sensor: sensor.ymeteotoday_temperature
+  calibration_factor: 2.0

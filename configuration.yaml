@@ -5,18 +5,19 @@ homeassistant:
   elevation: 39
   unit_system: metric
   time_zone: Europe/Paris
+  customize: !include customize.yaml
 
-base_url: 192.168.0.28:8123
+base_url: 192.168.0.23:8123
 
 #introduction:
 
-frontend:
+#frontend:
 
 http:
-  # Uncomment this to add a password (recommended!)
-  # api_password: PASSWORD
-  # Uncomment this if you are using SSL or running in Docker etc
-  # base_url: example.duckdns.org:8123
+#  api_password: 150216
+#  ssl_certificate: /etc/letsencrypt/live/kleans.duckdns.org/fullchain.pem
+#  ssl_key: /etc/letsencrypt/live/kleans.duckdns.org/privkey.pem
+#  base_url: kleans.duckdns.org
 
 updater:
 
@@ -30,12 +31,10 @@ logbook:
 
 sun:
 
-#device_tracker:
-#  - platform: bluetooth_le_tracker
+device_tracker:
+  - platform: bluetooth_le_tracker
 
 sensor: !include sensor.yaml
-
-customize: !include customize.yaml
 
 tts:
   platform: google
@@ -69,12 +68,12 @@ switch:
     host: 192.168.0.12
     mac: '34:ea:34:d9:f1:92'
     type: mp1-3
-    friendly_name: 'Box Tele'
+    friendly_name: 'Television'
   - platform: broadlink
     host: 192.168.0.12
     mac: '34:ea:34:d9:f1:92'
     type: mp1-4
-    friendly_name: 'Television'
+    friendly_name: 'chromecast'
 
 group: !include group.yaml
 
@@ -82,6 +81,8 @@ automation: !include automation.yaml
 
 media_player:
   - platform: vlc
+  - platform: cast
+  - platform: plex
 
 input_boolean:
   bonjour:
@@ -101,4 +102,20 @@ script:
         entity_id: media_player.vlc
         data_template:
           message: "{{ ['Bonjour','Comment allez vous?','Heureux de vous voir'] | random }} . La météo prévoit, {{ states.sensor.meteotoday.state }} pour aujourd'hui. La température extérieure est de {{ states.sensor.tempext_temperature.state | round }} degrés."
+  demarre_robot_aspi:
+    alias: Demarre Robot Aspirateur
+    sequence:
+      - service: broadlink.send_packet_192_168_0_25
+        data:
+          packet:
+# bouton power            - "JgAwApSREjcSEhMSEhITEhISExISNhM2ExITERMSExETEhMREzYTEhMRExITERMSExETEhISEzYTNhM2EzYTNhM2EzYTNhMAA7aTkRM2ExITERMSExETEhMREzYTNhMSExETEhISExISEhM2ExETEhMRExITERMSExETEhM2EzYTNhM2EjcSNxI3EjYTAAO2lJETNhMSEhITEhISExISEhM2EzYTERMSExETEhMRExITNhMRExITERMSExETEhISExISNxI3EjYTNhM2EzYTNhM2EwADtpSREzYTERMSExETEhMRExITNhM2ExETEhMRExISEhMSEjcSEhMSEhITEhISExETEhMREzYTNhM2EzYTNhM2EzYTNhMAA7aUkRM2ExETEhMRExISEhMSEjcSNxISExISEhMRExITERM2ExITERMSExETEhMRExITERM2EzYTNhM2EzYTNhM2EzYTAAO2k5ISNxISExISEhMSEhITEhI2EzYTEhMRExITERMSExETNhMSExETEhISExISEhMSEhITNhM2EzYTNhM2EzYTNhM2EwADtpOREzYTEhMRExITERMSExETNhM2ExISEhMSEhITEhISEzYTEhISExETEhMRExITERMSEzYTNhM2EzYSNxI3EjcSNhMAA7aUkRM2ExISEhMSEhITEhISEzYTNhMSEhITERMSExETEhM2ExETEhMRExITERMSEhITEhI3EjcSNhM3EjYTNhM2EzYTAA0FExITERMSEzY="
+            - "JgDSAJSREzYTEhISExISEhMSEhITNhM2ExETEhMRExITERMSEzYTERMSExETNhMSExETEhISEzYTNhM2ExETNhM2EzYTNhMAA7aUkRM2ExETEhMRExITERMSEzYTNhMRExITERMSExETEhM2EhITEhISEzYTEhISExETEhM2EzYTNhMREzYTNhM2EzYTAAO2lJETNhMRExITERMSExETEhM2EzYTERMSEhITEhISExISNhMSExETEhM2ExETEhMRExITNhM2EzYTERM2EzYTNhM2EwANBQAAAAAAAA=="
+  demarre_tv_cast:
+    alias: Demarre TV pour chromecast
+    sequence:
+      - service: broadlink.send_packet_192_168_0_25
+        data:
+          packet:
+            - "JgBQAAABJ5MTEhISEzcTEhMSExETEhMSEzYUNhMSEzYTNxM3EzYTNxMSExETEhM3ExITERMSExITNxM2EzcTEhM2EzcTNhM3EwAFQQABJ0gTAA0FAAAAAAAAAAA="
+            - "JgBQAAABJJMSEhISETgSEhITEBMSEhMSETcSNxMREjcSNxI3EjcSOBETERITNhM2EhITERM2EzcRNxI3ExISEhI3EjcRExETEgAFLQABJEoRAA0FAAAAAAAAAAA="
 
