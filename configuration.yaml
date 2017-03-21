@@ -7,7 +7,6 @@ homeassistant:
   time_zone: Europe/Paris
   customize: !include customize.yaml
 
-base_url: 192.168.0.23:8123
 
 #introduction:
 
@@ -17,7 +16,8 @@ http:
 #  api_password: 150216
 #  ssl_certificate: /etc/letsencrypt/live/kleans.duckdns.org/fullchain.pem
 #  ssl_key: /etc/letsencrypt/live/kleans.duckdns.org/privkey.pem
-#  base_url: kleans.duckdns.org
+#  base_url: kleans.duckdns.org:8123
+#  base_url: kleans.duckdns.org:443
 
 updater:
 
@@ -33,6 +33,19 @@ sun:
 
 device_tracker:
   - platform: bluetooth_le_tracker
+google:
+  client_id: 612631300023-ji3q2iopvtepq4cusdsip8m001q29m21.apps.googleusercontent.com
+  client_secret: pivmq-T1XzSujXD9rxHB8c3r
+
+notify:
+  - name: notifier_seb
+    platform: telegram
+    api_key: 324726208:AAFID-JexILPVFCqGoS2EIPLc3zG0AMXEiU
+    chat_id: 258006500
+  - name: notifier_klem
+    platform: telegram
+    api_key: 324726208:AAFID-JexILPVFCqGoS2EIPLc3zG0AMXEiU
+    chat_id: 371727511 
 
 sensor: !include sensor.yaml
 
@@ -53,6 +66,10 @@ switch:
         friendly_name: 'TV LG Salon'
         command_on: 'JgBQAAABJ5MTEhISEzcTEhMSExETEhMSEzYUNhMSEzYTNxM3EzYTNxMSExETEhM3ExITERMSExITNxM2EzcTEhM2EzcTNhM3EwAFQQABJ0gTAA0FAAAAAAAAAAA='
         command_off: 'JgBQAAABJ5MTEhISEzcTEhMSExETEhMSEzYUNhMSEzYTNxM3EzYTNxMSExETEhM3ExITERMSExITNxM2EzcTEhM2EzcTNhM3EwAFQQABJ0gTAA0FAAAAAAAAAAA='
+      volet_salon:
+        friendly_name: 'volet salon'
+        command_on: 'sgBgAQkJCSwJLQkJCQoJLAkKCS0ICgksCSwJCgksCQoJLAkKCQoILQkJCS0JLAkKCSwJCgksCQoJCQktCAoJLAkKCSwJCgksCQoILQkKCSwJCggsCgABXQlbCQkJLQksCQoJCQktCSwJCgkJCSwJLQkJCQoJLAkKCSwJLAkKCQoJLAksCQoJCQktCQkJLQksCQoICgktCQkJLQkJCS0JLAkJCS0ICgksCQoJCgksCQoILQksCQoJLAkKCSwJCgkJCS0JCggtCQkJLQgKCS0ICgksCQoJLAkKCSwJAAFdCVsJCggtCSwJCgkKCC0JLAkKCQkJLQksCQoJCQksCQoJLAktCQkJCgktCCwJCgkKCSwJCggtCSwJCgkJCS0JCQktCQkJLQksCQoJLAkKCSwJCggKCSwJCgksCSwJCgksCQoJLAkKCQoILQkKCSwJCQktCQkJLQkJCS0JCQktCQkJLAkABdwAAAAAAAAAAA=='
+        command_off: 'sgBoAgksCQoJCggtCQoILQkKCC0JLAkKCC0JCggtCAoJCgksCQoILQksCQoJLAkKCSwJCgkJCSwJCgksCSwJCgkJCS0ICgktCQkJLAkKCSwJAAFdCVsJCQktCSwJCgkJCS0ILQgKCQoILQksCQoJCQktCAoJLQksCQoJCQksCS0JCQkKCSwJCgksCSwJCgkJCSwJCgktCQkJLQgsCQoJLAkKCSwJCgkJCS0JCQksCS0JCQktCAoJLQgKCQoILQkKCC0JLAkKCQkJLAoJCS0JCQksCQoJLAgAAWAJWwkJCS0JLAkKCAoJLQgtCQkJCgksCSwJCgkJCS0JCQktCSwJCgkJCS0ILQkKCAoJLAkKCSwJLAkKCQkJLQgKCS0JCQktCSwJCQktCAoJLAkKCQkJLQkJCS0JLAkKCSwJCggtCAsICgksCQoJLAksCQoJCQktCQkJLQgKCSwJCgksCAABXglbCQkJLQksCQoICgksCS0ICgkKCC0JLAkKCQkJLAoJCS0JLAkKCAoJLAktCAoJCgksCQkJLQksCQoICgksCQoJLQgKCSwJLAkKCSwJCgksCQoJCQksCgkJLAksCQoJLAkKCSwJCgkKCSwJCQktCSwJCggKCSwKCQksCQoJLAkJCSwJAAFdCVwJCQktCC0JCQkKCSwJLAkKCQkJLQksCQoICgksCQoJLQgtCAoJCggtCSwJCgkJCS0JCQktCC0JCQkKCSwJCgksCQoJLAksCQoJLAkKCSwJCggKCS0ICgksCSwJCgksCQoJLAkKCQkJLQgKCSwJLQkKCAoJLAkKCSwJCQktCQkJLAkABdw='
   - platform: broadlink
     host: 192.168.0.12
     mac: '34:ea:34:d9:f1:92'
@@ -91,6 +108,12 @@ input_boolean:
     icon: mdi:comment-text
   lumieresalon:
     name: Lumiere auto salon
+    initial: on
+  volets:
+    name: Gestion auto des volets
+    initial: on
+  poubelles:
+    name: Sortie des poubelles
     initial: on
 
 script:

@@ -3,7 +3,7 @@
     icon: mdi:home
     entities:
       - group.meteo
-      - group.sonde1
+#      - group.sonde1
       - group.ymeteo
       - group.ymeteotoday
       - group.automations
@@ -13,6 +13,7 @@
     entities:
       - group.sonde1
       - group.prisesalon
+      - group.automations_salon
       - media_player.vlc
       - media_player.cast
 #      - group.tvlg
@@ -28,6 +29,7 @@
       - sensor.broadlinkair
       - sensor.broadlinknoise
       - sensor.broadlinklight
+      - sensor.mold_indicator
   prisesalon:
     name: multiprise du salon
     entities:
@@ -35,7 +37,11 @@
       - switch.wii
       - switch.television
       - switch.chromecast
+  automations_salon:
+    name: automations du salon
+    entities:
       - script.demarre_tv_cast
+      - switch.volet_salon
 #  ymeteo:
 #    name: Meteo demain
 #    entities:
@@ -48,15 +54,18 @@
     name: Meteo    
     entities:
       - sensor.sun_state
-      - sensor.meteotoday
+      - sensor.forecast
       - sensor.yweather_humidity
       - sensor.yweather_temperature
       - sensor.yweather_wind_speed
       - sensor.yweather_visibility
+#      - sensor.mold_indicator
   automations:
     name: Automations
     entities:
       - input_boolean.bonjour
       - input_boolean.lumieresalon
+      - input_boolean.volets
+      - input_boolean.poubelles
       - script.demarre_robot_aspi
       - script.volet_chambre_parents

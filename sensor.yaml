@@ -25,7 +25,7 @@
   woeid: 22145400
 #  name: ymeteotoday
   monitored_conditions:
-    - weather
+    - weather_current
     - wind_speed
     - visibility
     - humidity
@@ -33,159 +33,8 @@
 - platform: template
   sensors:
     forecast:
-      friendly_name: 'Previsions pour demain'
+      friendly_name: 'Meteo'
       value_template: >
-        {%- if (states.sensor.yweather_condition.state == "tornado") -%}
-        des tornades
-        {%- endif %}
-        {%- if (states.sensor.yweather_condition.state == "Tropical Storm") -%}
-        des tempetes tropicales
-        {%- endif %}
-        {%- if (states.sensor.yweather_condition.state == "Hurricane") -%}
-        des ouragans
-        {%- endif %}
-        {%- if (states.sensor.yweather_condition.state == "Severe Thunderstorms") -%}
-        des orages importants
-        {%- endif %}
-        {%- if (states.sensor.yweather_condition.state == "Thunderstorms") -%}
-        des orages
-        {%- endif %}
-        {%- if (states.sensor.yweather_condition.state == "Mixed Rain And Snow") -%}
-        de la pluie et de la neige
-        {%- endif %}
-        {%- if (states.sensor.yweather_condition.state == "Mixed Rain And Sleet") -%}
-        de la pluie et de la neige fondue
-        {%- endif %}
-        {%- if (states.sensor.yweather_condition.state == "Mixed Snow And Sleet") -%}
-        de la neige fondue
-        {%- endif %}
-        {%- if (states.sensor.yweather_condition.state == "Freezing Drizzle") -%}
-        des bruines verglassantes
-        {%- endif %}
-        {%- if (states.sensor.yweather_condition.state == "Drizzle") -%}
-        de la bruine
-        {%- endif %}
-        {%- if (states.sensor.yweather_condition.state == "Freezing Rain") -%}
-        des pluies verglassantes
-        {%- endif %}
-        {%- if (states.sensor.yweather_condition.state == "Showers") -%}
-        de la pluie
-        {%- endif %}
-        {%- if (states.sensor.yweather_condition.state == "Snow Flurries") -%}
-        des averses de neige 
-        {%- endif %}
-        {%- if (states.sensor.yweather_condition.state == "Light Snow Showers") -%}
-        des averses de neige en petite quantité
-        {%- endif %}
-        {%- if (states.sensor.yweather_condition.state == "Blowing Snow") -%}
-        de la neige
-        {%- endif %}
-        {%- if (states.sensor.yweather_condition.state == "Snow") -%}
-        de la neige
-        {%- endif %}
-        {%- if (states.sensor.yweather_condition.state == "Hail") -%}
-        de la grêle
-        {%- endif %}
-        {%- if (states.sensor.yweather_condition.state == "Sleet") -%}
-        de la neige fondue
-        {%- endif %}
-        {%- if (states.sensor.yweather_condition.state == "Dust") -%}
-        de la poussiere
-        {%- endif %}
-        {%- if (states.sensor.yweather_condition.state == "Foggy") -%}
-        du brouillard
-        {%- endif %}
-        {%- if (states.sensor.yweather_condition.state == "Haze") -%}
-        de la brume
-        {%- endif %}
-        {%- if (states.sensor.yweather_condition.state == "Smoky") -%}
-        de la brume
-        {%- endif %}
-        {%- if (states.sensor.yweather_condition.state == "Blustery") -%}
-        des tempétes
-        {%- endif %}
-        {%- if (states.sensor.yweather_condition.state == "Windy") -%}
-        du vent
-        {%- endif %}
-        {%- if (states.sensor.yweather_condition.state == "Cold") -%}
-        un temps froid
-        {%- endif %}
-        {%- if (states.sensor.yweather_condition.state == "Cloudy") -%}
-        un temps nuageux
-        {%- endif %}
-        {%- if (states.sensor.yweather_condition.state == "Mostly Cloudy \(Night\)") -%}
-        un temps plutot nuageux en soirée
-        {%- endif %}
-        {%- if (states.sensor.yweather_condition.state == "Mostly Cloudy \(Day\)") -%}
-        un temps plutot nuageux en journée
-        {%- endif %}
-        {%- if (states.sensor.yweather_condition.state == "Mostly Cloudy") -%}
-        un temps plutot nuageux
-        {%- endif %}
-        {%- if (states.sensor.yweather_condition.state == "Partly Cloudy") -%}
-        un temps un peu nuageux
-        {%- endif %}
-        {%- if (states.sensor.yweather_condition.state == "Partly Cloudy \(Night\)") -%}
-        un temps un peu nuageux en soirée
-        {%- endif %}
-        {%- if (states.sensor.yweather_condition.state == "Partly Cloudy \(Day\)") -%}
-        un temps un peu nuageux en journée
-        {%- endif %}
-        {%- if (states.sensor.yweather_condition.state == "Clear \(Night\)") -%}
-        un temps clair en soirée
-        {%- endif %}
-        {%- if (states.sensor.yweather_condition.state == "Sunny") -%}
-        un temps ensoleillé
-        {%- endif %}
-        {%- if (states.sensor.yweather_condition.state == "Fair \(Night\)") -%}
-        un temps mitigé en soirée
-        {%- endif %}
-        {%- if (states.sensor.yweather_condition.state == "Fair \(Day\)") -%}
-        un temps mitigé en journée
-        {%- endif %}
-        {%- if (states.sensor.yweather_condition.state == "Mixes Rain And Hail") -%}
-        de la grêle et de la pluie melée
-        {%- endif %}
-        {%- if (states.sensor.yweather_condition.state == "Hot") -%}
-        un temps chaud
-        {%- endif %}
-        {%- if (states.sensor.yweather_condition.state == "Isolated Thunderstorms") -%}
-        des orages isolées
-        {%- endif %}
-        {%- if (states.sensor.yweather_condition.state == "Scattered Thunderstorms") -%}
-        des orages éparses
-        {%- endif %}
-        {%- if (states.sensor.yweather_condition.state == "Scattered Showers") -%}
-        des averses éparses
-        {%- endif %}
-        {%- if (states.sensor.yweather_condition.state == "Heavy Snow") -%}
-        beaucoup de neige
-        {%- endif %}
-        {%- if (states.sensor.yweather_condition.state == "Scattered Snow Showers") -%}
-        des chute de neige éparses
-        {%- endif %}
-        {%- if (states.sensor.yweather_condition.state == "Thundershowers") -%}
-        beaucoup d'orages
-        {%- endif %}
-        {%- if (states.sensor.yweather_condition.state == "Snow Showers") -%}
-        des chutes de neige
-        {%- endif %}
-        {%- if (states.sensor.yweather_condition.state == "Isolated Thundershowers") -%}
-        des orages isolés
-        {%- endif %}
-        {%- if (states.sensor.yweather_condition.state == "Clear") -%}
-        un temps dégagé
-        {%- endif %}
-      icon_template: mdi:weather-partlycloudy
-
-- platform: template
-  sensors:
-    meteotoday:
-      friendly_name: 'Meteo de la journée'
-      value_template: >
-        {%- if (states.sensor.yweather_current.state == "Clear") -%}
-        un temps dégagé
-        {%- endif %}
         {%- if (states.sensor.yweather_current.state == "tornado") -%}
         des tornades
         {%- endif %}
@@ -324,7 +173,12 @@
         {%- if (states.sensor.yweather_current.state == "Isolated Thundershowers") -%}
         des orages isolés
         {%- endif %}
-        {{ states.sensor.yweather_current.entity_picture }}
+        {%- if (states.sensor.yweather_current.state == "Clear") -%}
+        un temps dégagé
+        {%- endif %}
+        {%- if (states.sensor.yweather_current.state == "Breezy") -%}
+        du vent
+        {%- endif %}
       icon_template: mdi:weather-partlycloudy
 
 - platform: template
@@ -394,5 +248,14 @@
 - platform: mold_indicator
   indoor_temp_sensor: sensor.broadlink_sensor_temperature
   indoor_humidity_sensor: sensor.broadlink_sensor_humidity
-  outdoor_temp_sensor: sensor.ymeteotoday_temperature
+  outdoor_temp_sensor: sensor.yweather_temperature
   calibration_factor: 2.0
+- platform: template
+  sensors:
+    poubelles:
+      friendly_name: Poubelles
+      entity_id: sensor.date__time
+      value_template: >
+        {% if states.calendar.ordures %}
+        {% if is_state("calendar.ordures", "on") and as_timestamp(states.calendar.ordures.attributes.start_time) - as_timestamp(now()) < 900  %}on{% else %}off{% endif %}
+        {% else %}off{% endif %}

@@ -1,4 +1,12 @@
 
+ble_546009a60f41:
+  hide_if_away: false
+  mac: BLE_54:60:09:A6:0F:41
+  name: ble 546009a60f41
+  picture:
+  track: true
+  vendor: unknown
+
 ble_c65853bc6016:
   hide_if_away: false
   mac: BLE_C6:58:53:BC:60:16
@@ -11,14 +19,6 @@ ble_ef89f9de9390:
   hide_if_away: false
   mac: BLE_EF:89:F9:DE:93:90
   name: ble ef89f9de9390
-  picture:
-  track: true
-  vendor: unknown
-
-sebcast:
-  hide_if_away: false
-  mac: BLE_54:60:09:A6:0F:41
-  name: Sebcast
   picture:
   track: true
   vendor: unknown

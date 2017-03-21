@@ -1,9 +1,20 @@
 sensor.yweather_humidity:
   friendly_name: Humidité
   icon: mdi:water-percent
+sensor.yweather_temperature:
+  friendly_name: Température
+  icon: mdi:temperature-celsius
+sensor.yweather_visibility:
+  friendly_name: Visibité
+sensor.yweather_wind_speed:
+  friendly_name: Vitesse du vent
+  icon: mdi:weather-windy
 sensor.broadlink_sensor_temperature:
   friendly_name: Temperature
   icon: mdi:temperature-celsius
 sensor.broadlink_sensor_humidity:
   friendly_name: Humidité
   icon: mdi:water-percent
+sensor.mold_indicator:
+  friendly_name: Probabilite de moisissures
+  icon: mdi:percent
