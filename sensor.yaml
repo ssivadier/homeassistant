@@ -254,6 +254,6 @@
   sensors:
     poubelles:
       friendly_name: Poubelles
-      entity_id: sensor.date__time
+      entity_id: sensor.date_time
       value_template: >
         {% if as_timestamp(states.calendar.ordures.attributes.start_time) - as_timestamp(now().strftime(\"%Y-%m-%d %H:%M:%S\")) < 900  %}on{% else %}off{% endif %}
