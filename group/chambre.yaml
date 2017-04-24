@@ -1,0 +1,13 @@
+  chambre:
+    name: chambre
+    view: yes
+    entities:
+      - group.alarmclock
+  alarmclock:
+    name: Reveil
+    entities:
+      - sensor.alarm_time
+      - input_slider.alarmhour
+      - input_slider.alarmminutes
+      - input_boolean.alarmstatus
+

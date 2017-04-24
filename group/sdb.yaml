@@ -1,0 +1,10 @@
+  sdb:
+    name: sdb
+    view: yes
+    entities:
+      - group.automationssdb
+  automationssdb:
+    name: Automations SDB
+    entities:
+      - script.radiateur_sdb
+

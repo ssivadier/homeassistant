@@ -95,10 +95,10 @@ switch:
     type: mp1-4
     friendly_name: 'chromecast'
 
-group: !include group.yaml
-
+#group: !include group.yaml
 #automation: !include automation.yaml
 automation: !include_dir_merge_list automation
+group: !include_dir_merge_list group
 
 media_player:
   - platform: cast

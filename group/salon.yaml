@@ -1,9 +1,3 @@
-  default_view:
-    view: yes
-    icon: mdi:home
-    entities:
-      - group.ymeteotoday
-      - group.automations
   salon:
     name: salon
     view: yes
@@ -14,16 +8,6 @@
       - media_player.chromecast_salon
       - group.lumierestoilettes
       - group.lumieressalon
-  chambre:
-    name: chambre
-    view: yes
-    entities:
-      - group.alarmclock
-  sdb:
-    name: sdb
-    view: yes
-    entities:
-      - group.automationssdb
   sonde1:
     name: Sonde du salon
     entities:
@@ -55,32 +39,3 @@
       - script.news
       - script.annoncematin
       - switch.volet_salon
-  ymeteotoday:
-    name: Meteo    
-    entities:
-      - sensor.sun_state
-      - sensor.forecast
-      - sensor.yweather_humidity
-      - sensor.yweather_temperature
-      - sensor.yweather_wind_speed
-      - sensor.yweather_visibility
-  automations:
-    name: Automations
-    entities:
-      - input_boolean.bonjour
-      - input_boolean.lumieresalon
-      - input_boolean.volets
-      - input_boolean.poubelles
-      - script.demarre_robot_aspi
-      - script.volet_chambre_parents
-  alarmclock:
-    name: Reveil
-    entities: 
-      - sensor.alarm_time
-      - input_slider.alarmhour
-      - input_slider.alarmminutes
-      - input_boolean.alarmstatus
-  automationssdb:
-    name: Automations SDB
-    entities:
-      - script.radiateur_sdb
