@@ -245,15 +245,22 @@
       value_template: '{% if is_state("sun.sun", "above_horizon") %}levé{% else %}couché{% endif %}'
       friendly_name: 'Etat du soleil'
       icon_template: '{% if is_state("sun.sun", "above_horizon") %}mdi:weather-sunny{% else %}mdi:weather-night{% endif %}'
-- platform: mold_indicator
-  indoor_temp_sensor: sensor.broadlink_sensor_temperature
-  indoor_humidity_sensor: sensor.broadlink_sensor_humidity
-  outdoor_temp_sensor: sensor.yweather_temperature
-  calibration_factor: 2.0
 - platform: template
   sensors:
     poubelles:
       friendly_name: Poubelles
-      entity_id: sensor.date_time
-      value_template: >
-        {% if as_timestamp(states.calendar.ordures.attributes.start_time) - as_timestamp(now().strftime(\"%Y-%m-%d %H:%M:%S\")) < 900  %}on{% else %}off{% endif %}
+      value_template: '{% if as_timestamp(states.calendar.ordures.attributes.start_time) - as_timestamp(now().strftime("%Y-%m-%d %H:%M:%S")) < 900  %}on{% else %}off{% endif %}'
+- platform: template
+  sensors:
+    alarm_hour:
+      friendly_name: 'Hour'
+      value_template: '{{ states("input_slider.alarmhour") | round(0) }}'
+    alarm_minutes:
+      friendly_name: 'Minutes'
+      value_template: '{{ states("input_slider.alarmminutes") | round(0) }}'
+    alarm_time:
+      friendly_name: 'Time'
+      value_template: '{{ states("sensor.alarm_hour") }}:{% if states("sensor.alarm_minutes")|length == 1 %}0{% endif %}{{ states("sensor.alarm_minutes") }}'
+- platform: command_line
+  name: news
+  command: "cat /home/homeassistant/.homeassistant/scripts/news.txt"

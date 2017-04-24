@@ -1,0 +1,60 @@
+
+- cal_id: hhjqnhsutocsj3gc11spe4t7d0@group.calendar.google.com
+  entities:
+  - device_id: abigael
+    name: "Abiga\xEBl"
+    track: true
+
+- cal_id: ssivadier@gmail.com
+  entities:
+  - device_id: ssivadiergmailcom
+    name: ssivadier@gmail.com
+    track: true
+
+- cal_id: 7erqct0tvi56ad6673sodnero0@group.calendar.google.com
+  entities:
+  - device_id: planning_prod_cpii
+    name: Planning Prod CPII
+    track: true
+
+- cal_id: 6tl7c7jobbukgg3cjql3914nl4@group.calendar.google.com
+  entities:
+  - device_id: divers
+    name: divers
+    track: true
+
+- cal_id: 61i4baph3bj21ln59ern8din1s@group.calendar.google.com
+  entities:
+  - device_id: kleans
+    name: KleanS
+    track: true
+
+- cal_id: f0bt7n5glv2j3vutm3ro5peaa4@group.calendar.google.com
+  entities:
+  - device_id: ordures
+    name: Ordures
+    track: true
+
+- cal_id: '#contacts@group.v.calendar.google.com'
+  entities:
+  - device_id: contacts
+    name: Contacts
+    track: true
+
+- cal_id: fr.christian#holiday@group.v.calendar.google.com
+  entities:
+  - device_id: jours_feries_chretiens
+    name: "Jours f\xE9ri\xE9s chr\xE9tiens"
+    track: true
+
+- cal_id: fr.french#holiday@group.v.calendar.google.com
+  entities:
+  - device_id: jours_feries_en_france
+    name: "Jours f\xE9ri\xE9s en France"
+    track: true
+
+- cal_id: p#weeknum@group.v.calendar.google.com
+  entities:
+  - device_id: week_numbers
+    name: Week Numbers
+    track: true

@@ -2,9 +2,6 @@
     view: yes
     icon: mdi:home
     entities:
-      - group.meteo
-#      - group.sonde1
-      - group.ymeteo
       - group.ymeteotoday
       - group.automations
   salon:
@@ -14,13 +11,19 @@
       - group.sonde1
       - group.prisesalon
       - group.automations_salon
-      - media_player.vlc
-      - media_player.cast
-#      - group.tvlg
-#  tvlg:
-#    name: tv du salon
-#    entitites:
-#      - switch.tv_lg
+      - media_player.chromecast_salon
+      - group.lumierestoilettes
+      - group.lumieressalon
+  chambre:
+    name: chambre
+    view: yes
+    entities:
+      - group.alarmclock
+  sdb:
+    name: sdb
+    view: yes
+    entities:
+      - group.automationssdb
   sonde1:
     name: Sonde du salon
     entities:
@@ -29,27 +32,29 @@
       - sensor.broadlinkair
       - sensor.broadlinknoise
       - sensor.broadlinklight
-      - sensor.mold_indicator
   prisesalon:
-    name: multiprise du salon
+    name: Multiprise du salon
     entities:
       - switch.lampe_salon
       - switch.wii
       - switch.television
       - switch.chromecast
+  lumieressalon:
+    name: Lumieres Salon
+    entities:
+      - light.tradfri_bulb_e14_ws_opal_400lm
+      - light.tradfri_bulb_e14_ws_opal_400lm_2
+  lumierestoilettes:
+    name: Lumieres Toilettes
+    entities:
+      - light.tradfri_bulb_e27_opal_1000lm
   automations_salon:
-    name: automations du salon
+    name: Automations du salon
     entities:
       - script.demarre_tv_cast
+      - script.news
+      - script.annoncematin
       - switch.volet_salon
-#  ymeteo:
-#    name: Meteo demain
-#    entities:
-#      - sensor.forecast
-#      - sensor.globaltemp
-#      - sensor.yweather_humidity
-#      - sensor.yweather_wind_speed
-#      - sensor.yweather_visibility
   ymeteotoday:
     name: Meteo    
     entities:
@@ -59,7 +64,6 @@
       - sensor.yweather_temperature
       - sensor.yweather_wind_speed
       - sensor.yweather_visibility
-#      - sensor.mold_indicator
   automations:
     name: Automations
     entities:
@@ -69,3 +73,14 @@
       - input_boolean.poubelles
       - script.demarre_robot_aspi
       - script.volet_chambre_parents
+  alarmclock:
+    name: Reveil
+    entities: 
+      - sensor.alarm_time
+      - input_slider.alarmhour
+      - input_slider.alarmminutes
+      - input_boolean.alarmstatus
+  automationssdb:
+    name: Automations SDB
+    entities:
+      - script.radiateur_sdb

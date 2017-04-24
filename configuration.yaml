@@ -31,8 +31,8 @@ logbook:
 
 sun:
 
-device_tracker:
-  - platform: bluetooth_le_tracker
+#device_tracker:
+#  - platform: bluetooth_le_tracker
 google:
   client_id: 612631300023-ji3q2iopvtepq4cusdsip8m001q29m21.apps.googleusercontent.com
   client_secret: pivmq-T1XzSujXD9rxHB8c3r
@@ -70,6 +70,9 @@ switch:
         friendly_name: 'volet salon'
         command_on: 'sgBgAQkJCSwJLQkJCQoJLAkKCS0ICgksCSwJCgksCQoJLAkKCQoILQkJCS0JLAkKCSwJCgksCQoJCQktCAoJLAkKCSwJCgksCQoILQkKCSwJCggsCgABXQlbCQkJLQksCQoJCQktCSwJCgkJCSwJLQkJCQoJLAkKCSwJLAkKCQoJLAksCQoJCQktCQkJLQksCQoICgktCQkJLQkJCS0JLAkJCS0ICgksCQoJCgksCQoILQksCQoJLAkKCSwJCgkJCS0JCggtCQkJLQgKCS0ICgksCQoJLAkKCSwJAAFdCVsJCggtCSwJCgkKCC0JLAkKCQkJLQksCQoJCQksCQoJLAktCQkJCgktCCwJCgkKCSwJCggtCSwJCgkJCS0JCQktCQkJLQksCQoJLAkKCSwJCggKCSwJCgksCSwJCgksCQoJLAkKCQoILQkKCSwJCQktCQkJLQkJCS0JCQktCQkJLAkABdwAAAAAAAAAAA=='
         command_off: 'sgBoAgksCQoJCggtCQoILQkKCC0JLAkKCC0JCggtCAoJCgksCQoILQksCQoJLAkKCSwJCgkJCSwJCgksCSwJCgkJCS0ICgktCQkJLAkKCSwJAAFdCVsJCQktCSwJCgkJCS0ILQgKCQoILQksCQoJCQktCAoJLQksCQoJCQksCS0JCQkKCSwJCgksCSwJCgkJCSwJCgktCQkJLQgsCQoJLAkKCSwJCgkJCS0JCQksCS0JCQktCAoJLQgKCQoILQkKCC0JLAkKCQkJLAoJCS0JCQksCQoJLAgAAWAJWwkJCS0JLAkKCAoJLQgtCQkJCgksCSwJCgkJCS0JCQktCSwJCgkJCS0ILQkKCAoJLAkKCSwJLAkKCQkJLQgKCS0JCQktCSwJCQktCAoJLAkKCQkJLQkJCS0JLAkKCSwJCggtCAsICgksCQoJLAksCQoJCQktCQkJLQgKCSwJCgksCAABXglbCQkJLQksCQoICgksCS0ICgkKCC0JLAkKCQkJLAoJCS0JLAkKCAoJLAktCAoJCgksCQkJLQksCQoICgksCQoJLQgKCSwJLAkKCSwJCgksCQoJCQksCgkJLAksCQoJLAkKCSwJCgkKCSwJCQktCSwJCggKCSwKCQksCQoJLAkJCSwJAAFdCVwJCQktCC0JCQkKCSwJLAkKCQkJLQksCQoICgksCQoJLQgtCAoJCggtCSwJCgkJCS0JCQktCC0JCQkKCSwJCgksCQoJLAksCQoJLAkKCSwJCggKCS0ICgksCSwJCgksCQoJLAkKCQkJLQgKCSwJLQkKCAoJLAkKCSwJCQktCQkJLAkABdw='
+      radiateur_sdb:
+        command_on: 'sgOEAw8kDyMgEg8jDyMgEiASECMPIyASIBIgEx8TIBIgEiASIRIPIyASDyMgEiESDyMPI2PsDyMPIyASECIQIyASIBIPIw8jIBMfEiESIBIgEiATIBIgEg8jIBMPIyASIBIPIxAmC0wLJwsnJA4LJwsnCycLJyQPIw4LJyQOJA8LJwsnJA4kDgsnJA4kDgsnJA4kDgsnCycMTAsnCyckDgsnCycLJwsnJA4kDgsnJA4kDgsnCyckDiQOCyckDiQODCYlDiQOCycLJwtMCycLJyQOCycLJwsnCyckDiQOCyckDiQODCcKJyUOJA0MJyQOJA4LJyQOJA4LJwsnDEwLJwonJQ4LJwsnCycLJyQOJA4LJyQOJA4LJwsnJA4kDgsnJA4lDgonJQ4kDgsnCydj6xAiECMgEg8jDyMPIxAjIBIgEg8jIBIgEw8jDyMgEiASECMgEiASECIgEiESDyMPI2PsDyMPIyASECIQIw8jDyMgEiATDyMgEiASECIQIyASIBIPIyASIRIPIyASIBMPIw8jY+sQIhAjIBIPIw8jECIQIx8TIBIPIyASIBMPIw8jIBIgEhAjIBIgEg8jIBIhEg8jDyNj7A8jDyMgEw8jDyMPIw8jIBIgEw8jIBIgEg8jECIhEiASDyMgEyASDyMgEiASECIQJgtMCycLJyQPCigkDiQOJA4LJyQOJA4kDgsnJA4LKAooCicMJgwmDCYkDyMPJA4LJwsnC0wLJwsnJA4LKCMOJA4kDwsnJA4kDiQOCyckDgsnCycLJwsnCycLJyQOJA4kDwsnCycKTQsnCyckDgsnJA4kDiQOCyckDiQPIw8LJyQOCycLJwsnCycLJwsnJA4kDiQOCycLJwtMCycMJiQODCYlDiQOJA4LJyQOJA4kDgsnJA8LJgwmDCYLKAonDCckDiQOJA4LJwsnY+wPIw8jIBIPJB8SIRIgEhAiIBMgEiASDyMgEhAjDyMPIw8jDyMQIx8TIBIgEw8iECNj6xAiECMgEg8jIBIhEiASDyMgEiASIRIPIyASECIQIw8jDyMPIw8jIRIgEiASDyMQI2PrDyMQIiATDyMgEiASIRIPIyASIBMgEg8jIBIPIxAjDyMPIw8jDyMgEx8TIBIPIw8kYuwPIxAiIBMPIyASIBIhEg8jIBIgEiATDyMgEhAjDyIQIw8jDyMQIiATIBIgEg8jDwAF3AAAAAA='
+        command_off: 'sgKEAw4kDiQfEw8jDyQfEx8TIBMfEw8jDyMgEw8jHxMgEw8jDyMgEx8THxMgEiATDyMPI2PtDyMPIyATDiQPIyATHxMgEiATDiQPIyASDyQfEyATDiQOJB8TIBIgEx8TIBMOJA8nC0wLKAooIw8LJyQOCyckDwooCigKKCMPJA4LJwsnCygKKAooCyckDgsnJA4kDwooCigLTAsnCygjDwooJA4LJyQOCygKKAooJA4kDgsnCycLJwsoCigKKCMPCyckDiQPCigKKApNCygKKCMPCigjDwsnJA4LJwsoCigjDyMPCycLJwsoCigKKAooIw8KKCQOJA8KJwsoC0wLJwsnJA8KKCMPCigkDgsoCicLKCMPJA4LJwsnCycLJwsoCigjDwooJA4kDgsoCihi7Q8jDyMgEw8jIBMOJB8TDyMPJA8jHxMgEw8jDyQOIw8kDyMPIyATDiQfEyASDyQPI2PtDyMPIyATDiQgEg8kHxMPIw8jDyQfEyASDyMPJA8jDyMPJA4kHxMPJB8THxMPIw8kYu0PIw8kHxMPIyATDiQgEg8jDyQOJCASIBMPIw8jDyMPJA8jDyMgEw4kHxMgEw8jDyNj7Q4kDyMgEw4kHxMPJB8TDyMPIw8kHxMfEw8kDiQPIw8kDiQOJCASDyQfEyASDyQOKAtNCicLKCMPCigjDwsnCyckDwooCigKKAooCyckDgsnCygjDwooCigLJyQOJA4LJwsoCk0LKAonJA8KKCMPCycLJyQOCygKKAooCycKKCQOCycLKCMPCigLJwsnJA4kDwooCigKTQsnCyckDwooIw8LJwsnJA4LKAooCigKKAsnJA4LKAooIw8KKAooCyckDiQOCygKKApNCygKKCMPCigjDwsnCygjDwooCigKKAooCyckDgsoCickDwooCigKKCQOJA8KKAooY+wPJA4kHxMPJB8TDyMPJB8TDiQPIw8kDiQPIyATDiQOJB8UDiQOJA8jIBMfEw8jDyRi7Q8jDyQfEw8jIBMOJA4kIBIPJA4kDyMPIw8kHxMPIw8kHxMPIw8kDiQfEyATDiQOJGPsECMPIyASDyQfEw8jDyQfEw8jDyQOJA8jDyMgEw4kDyMgEw4kDyMPJB8THxMPIw8kYu0PJA4kIBIPIyATDiQPJB8TDiQPIw8kDiQPIyATDiQOJCATDiMQIw8jIBMfEw8jDwAF3AAAAAA='
   - platform: broadlink
     host: 192.168.0.12
     mac: '34:ea:34:d9:f1:92'
@@ -94,10 +97,10 @@ switch:
 
 group: !include group.yaml
 
-automation: !include automation.yaml
+#automation: !include automation.yaml
+automation: !include_dir_merge_list automation
 
 media_player:
-  - platform: vlc
   - platform: cast
   - platform: plex
 
@@ -115,6 +118,26 @@ input_boolean:
   poubelles:
     name: Sortie des poubelles
     initial: on
+  alarmstatus:
+    name: Wake Me Up
+    initial: on
+    icon: mdi:alarm-check
+
+input_slider: 
+  alarmhour:
+    name: Hour
+    icon: mdi:timer
+    initial: 7 
+    min: 0
+    max: 23
+    step: 1
+  alarmminutes:
+    name: Minutes
+    icon: mdi:timer
+    initial: 0
+    min: 0
+    max: 55
+    step: 5
 
 script:
   annoncematin:
@@ -122,9 +145,10 @@ script:
     sequence:
       - alias: Annonce Matin
         service: tts.google_say
-        entity_id: media_player.vlc
+        entity_id: media_player.chromecast_salon
         data_template:
-          message: "{{ ['Bonjour','Comment allez vous?','Heureux de vous voir'] | random }} . La météo prévoit, {{ states.sensor.meteotoday.state }} pour aujourd'hui. La température extérieure est de {{ states.sensor.tempext_temperature.state | round }} degrés."
+          message: "{{ ['Bonjour','Comment allez vous?','Heureux de vous voir'] | random }}. La météo prévoit, {{ states.sensor.meteotoday.state }} pour aujourd'hui. La température extérieure est de {{ states.sensor.tempext_temperature.state | round }} degrés."
+          cache: false
   demarre_robot_aspi:
     alias: Demarre Robot Aspirateur
     sequence:
@@ -141,4 +165,19 @@ script:
           packet:
             - "JgBQAAABJ5MTEhISEzcTEhMSExETEhMSEzYUNhMSEzYTNxM3EzYTNxMSExETEhM3ExITERMSExITNxM2EzcTEhM2EzcTNhM3EwAFQQABJ0gTAA0FAAAAAAAAAAA="
             - "JgBQAAABJJMSEhISETgSEhITEBMSEhMSETcSNxMREjcSNxI3EjcSOBETERITNhM2EhITERM2EzcRNxI3ExISEhI3EjcRExETEgAFLQABJEoRAA0FAAAAAAAAAAA="
-
+  news:
+    alias: Les News
+    sequence:
+      - alias: Annonce news
+        service: tts.google_say
+        entity_id: media_player.chromecast_salon
+        data_template:
+          message: "Voici les nouvelles de la journée, {{ states.sensor.news.state }}"
+          cache: false
+  radiateur_sdb:
+    alias: Radiateur sdb
+    sequence:
+      - service: broadlink.send_packet_192_168_0_25
+        data:
+          packet:
+            - "sgOEAw8kDyMgEg8jDyMgEiASECMPIyASIBIgEx8TIBIgEiASIRIPIyASDyMgEiESDyMPI2PsDyMPIyASECIQIyASIBIPIw8jIBMfEiESIBIgEiATIBIgEg8jIBMPIyASIBIPIxAmC0wLJwsnJA4LJwsnCycLJyQPIw4LJyQOJA8LJwsnJA4kDgsnJA4kDgsnJA4kDgsnCycMTAsnCyckDgsnCycLJwsnJA4kDgsnJA4kDgsnCyckDiQOCyckDiQODCYlDiQOCycLJwtMCycLJyQOCycLJwsnCyckDiQOCyckDiQODCcKJyUOJA0MJyQOJA4LJyQOJA4LJwsnDEwLJwonJQ4LJwsnCycLJyQOJA4LJyQOJA4LJwsnJA4kDgsnJA4lDgonJQ4kDgsnCydj6xAiECMgEg8jDyMPIxAjIBIgEg8jIBIgEw8jDyMgEiASECMgEiASECIgEiESDyMPI2PsDyMPIyASECIQIw8jDyMgEiATDyMgEiASECIQIyASIBIPIyASIRIPIyASIBMPIw8jY+sQIhAjIBIPIw8jECIQIx8TIBIPIyASIBMPIw8jIBIgEhAjIBIgEg8jIBIhEg8jDyNj7A8jDyMgEw8jDyMPIw8jIBIgEw8jIBIgEg8jECIhEiASDyMgEyASDyMgEiASECIQJgtMCycLJyQPCigkDiQOJA4LJyQOJA4kDgsnJA4LKAooCicMJgwmDCYkDyMPJA4LJwsnC0wLJwsnJA4LKCMOJA4kDwsnJA4kDiQOCyckDgsnCycLJwsnCycLJyQOJA4kDwsnCycKTQsnCyckDgsnJA4kDiQOCyckDiQPIw8LJyQOCycLJwsnCycLJwsnJA4kDiQOCycLJwtMCycMJiQODCYlDiQOJA4LJyQOJA4kDgsnJA8LJgwmDCYLKAonDCckDiQOJA4LJwsnY+wPIw8jIBIPJB8SIRIgEhAiIBMgEiASDyMgEhAjDyMPIw8jDyMQIx8TIBIgEw8iECNj6xAiECMgEg8jIBIhEiASDyMgEiASIRIPIyASECIQIw8jDyMPIw8jIRIgEiASDyMQI2PrDyMQIiATDyMgEiASIRIPIyASIBMgEg8jIBIPIxAjDyMPIw8jDyMgEx8TIBIPIw8kYuwPIxAiIBMPIyASIBIhEg8jIBIgEiATDyMgEhAjDyIQIw8jDyMQIiATIBIgEg8jDwAF3AAAAAA="
