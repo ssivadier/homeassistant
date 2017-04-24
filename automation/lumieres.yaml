@@ -1,0 +1,16 @@
+- alias: allumer les lumieres quand le soir tombe
+  trigger:
+    platform: numeric_state
+    entity_id: sun.sun
+    value_template: '{{ state.attributes.elevation }}'
+    below: 2.5
+  condition:
+    - condition: state
+      entity_id: input_boolean.volets
+      state: 'on'
+  action:
+    - service: light.turn_on
+      entity_id: group.lumieressalon
+      data:
+        brightness: 254 
+

@@ -6,7 +6,7 @@
     platform: numeric_state
     entity_id: sun.sun
     value_template: '{{ state.attributes.elevation }}'
-    below: 2.5
+    below: 0.5
   condition:
     - condition: state
       entity_id: input_boolean.volets
@@ -15,10 +15,6 @@
 #      entity_id: sensor.broadlinklight
 #      state: 'sombre' 
   action:
-    - service: light.turn_on
-      entity_id: group.lumieressalon
-      data:
-        brightness: 254
     - service: switch.turn_off
       entity_id: switch.volet_salon
     - service: notify.notifier_seb
