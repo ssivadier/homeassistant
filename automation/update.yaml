@@ -6,12 +6,12 @@
   action:
     - service: notify.notifier_seb
       data:
-        message: "HomeAssistant {{ states('updater.updater') }} is now available"
+        message: "HomeAssistant {{ states('updater.updater') }} est disponible"
         title: "Update HASS"
     - service: persistent_notification.create
       data:
         title: "Update Available"
         message: >
-          Home Assistant {{ states('updater.updater') }} is available, please [update](https://home-assistant.io/getting-started/installation-raspberry-pi-all-in-one/#upgrading).
+          Home Assistant {{ states('updater.updater') }} est disponible, vous pouvez le [mettre a jour](https://home-assistant.io/docs/hassbian/upgrading/).
         notification_id: "update_available"
 
