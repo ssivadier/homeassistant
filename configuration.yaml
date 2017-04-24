@@ -98,7 +98,7 @@ switch:
 #group: !include group.yaml
 #automation: !include automation.yaml
 automation: !include_dir_merge_list automation
-group: !include_dir_merge_list group
+group: !include_dir_merge_named group
 
 media_player:
   - platform: cast
