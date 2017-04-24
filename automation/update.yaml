@@ -1,0 +1,17 @@
+- alias: "Update Available Notification"
+  initial_state: 'on'
+  trigger:
+    platform: state
+    entity_id: updater.updater
+  action:
+    - service: notify.notifier_seb
+      data:
+        message: "HomeAssistant {{ states('updater.updater') }} is now available"
+        title: "Update HASS"
+    - service: persistent_notification.create
+      data:
+        title: "Update Available"
+        message: >
+          Home Assistant {{ states('updater.updater') }} is available, please [update](https://home-assistant.io/getting-started/installation-raspberry-pi-all-in-one/#upgrading).
+        notification_id: "update_available"
+

@@ -1,0 +1,18 @@
+- alias: Poubelles a sortir
+  trigger:
+    platform: state
+    entity_id: sensor.poubelles
+    to: 'on'
+    from: 'off'
+  condition:
+    - condition: state
+      entity_id: input_boolean.poubelles
+      state: 'on'
+  action:
+    - service: notify.notifier_seb
+      data:
+        message: 'Monsieur, il faudrait sortir les {{ states.calendar.ordures.attributes.message }}.'
+    - service: notify.notifier_klem
+      data:
+        message: 'Mademoiselle, il faudrait sortir les {{ states.calendar.ordures.attributes.message }}.'
+

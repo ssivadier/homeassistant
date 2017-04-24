@@ -1,0 +1,26 @@
+- alias: Wake Me Up
+  trigger:
+    platform: time
+    minutes: '/1'
+    seconds: 0
+  condition:
+    - condition: state
+      entity_id: input_boolean.alarmstatus
+      state: 'on'
+    - condition: template
+      value_template: '{{ now().strftime("%-H:%-M") == states.sensor.alarm_time.state }}'
+    - condition: state
+      entity_id: calendar.jours_feries_en_france
+      state: 'off'
+    - condition: time
+      weekday:
+        - mon
+        - tue
+        - wed
+        - thu
+        - fri
+  action:
+    - service: notify.notifier_seb
+      data:
+        message: 'Bonjour Seb. Il faut se lever, il est {{ states.sensor.alarm_hour.state }}h{{ states.sensor.alarm_minutes.state }}. La temperature exterieure est de {{ states.sensor.yweather_temperature.state }} degrés et la météo prévoit {{ states.sensor.forecast.state }}.'
+

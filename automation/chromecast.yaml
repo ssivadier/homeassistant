@@ -1,0 +1,45 @@
+- alias: "Chromecast paused"
+  trigger:
+    platform: state
+    entity_id: media_player.chromecast_salon
+    state: 'paused'
+  condition:
+    - condition: state
+      entity_id: light.tradfri_bulb_e14_ws_opal_400lm_2
+      state: 'on'
+  action:
+    - service: light.turn_on
+      entity_id: group.lumieressalon
+      data:
+        brightness: 254
+- alias: "Chromecast playing"
+  trigger:
+    platform: state
+    entity_id: media_player.chromecast_salon
+    state: 'playing'
+  condition:
+    - condition: state
+      entity_id: light.tradfri_bulb_e14_ws_opal_400lm_2
+      state: 'on'
+  action:
+    - service: light.turn_on
+      entity_id: group.lumieressalon
+      data:
+        transition: 50
+        brightness: 15
+- alias: "Chromecast stopped"
+  trigger:
+    platform: state
+    entity_id: media_player.chromecast_salon
+    to: 'stopped'
+    from: 'playing'
+  condition:
+    - condition: state
+      entity_id: light.tradfri_bulb_e14_ws_opal_400lm_2
+      state: 'on'
+  action:
+    - service: light.turn_on
+      entity_id: group.lumieressalon
+      data:
+        brightness: 254
+
