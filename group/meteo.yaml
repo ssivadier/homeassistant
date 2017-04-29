@@ -1,0 +1,19 @@
+  ymeteotoday:
+    name: Meteo
+    entities:
+      - sensor.sun_state
+      - sensor.forecast
+      - sensor.yweather_humidity
+      - sensor.yweather_temperature
+      - sensor.yweather_wind_speed
+      - sensor.yweather_visibility
+
+  sonde1:
+    name: Sonde du salon
+    entities:
+      - sensor.broadlink_sensor_temperature
+      - sensor.broadlink_sensor_humidity
+      - sensor.broadlinkair
+      - sensor.broadlinknoise
+      - sensor.broadlinklight
+

@@ -102,21 +102,21 @@ group: !include_dir_merge_named group
 
 media_player:
   - platform: cast
-  - platform: plex
+#  - platform: plex
 
 input_boolean:
   bonjour:
     name: Service bonjour
     initial: on
     icon: mdi:comment-text
-  lumieresalon:
-    name: Lumiere auto salon
-    initial: on
   volets:
     name: Gestion auto des volets
     initial: on
+  lumieresalon:
+    name: Lumieres du salon
+    initial: on
   poubelles:
-    name: Sortie des poubelles
+    name: sortir les poubelles
     initial: on
   alarmstatus:
     name: Wake Me Up

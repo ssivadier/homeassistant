@@ -1,0 +1,23 @@
+  automations:
+    name: Automations
+    entities:
+      - input_boolean.bonjour
+      - input_boolean.lumieresalon
+      - input_boolean.volets
+      - input_boolean.poubelles
+      - script.demarre_robot_aspi
+      - script.volet_chambre_parents
+
+  automationssdb:
+    name: Automations SDB
+    entities:
+      - script.radiateur_sdb
+
+  automations_salon:
+    name: Automations du salon
+    entities:
+      - script.demarre_tv_cast
+      - script.news
+      - script.annoncematin
+      - switch.volet_salon
+

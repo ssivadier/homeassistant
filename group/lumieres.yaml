@@ -1,0 +1,10 @@
+  lumieressalon:
+    name: Lumieres Salon
+    entities:
+      - light.tradfri_bulb_e14_ws_opal_400lm
+      - light.tradfri_bulb_e14_ws_opal_400lm_2
+  lumierestoilettes:
+    name: Lumieres Toilettes
+    entities:
+      - light.tradfri_bulb_e27_opal_1000lm
+

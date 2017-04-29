@@ -1,0 +1,7 @@
+  prisesalon:
+    name: Multiprise du salon
+    entities:
+      - switch.lampe_salon
+      - switch.wii
+      - switch.television
+      - switch.chromecast

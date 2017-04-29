@@ -1,0 +1,18 @@
+  programme_tv:
+    name: Programme Tele
+    entities:
+      - sensor.tf1
+      - sensor.fr2
+      - sensor.fr3
+      - sensor.canal
+      - sensor.arte
+      - sensor.m6
+      - sensor.fr5
+      - sensor.c8
+      - sensor.w9
+      - sensor.tmc
+      - sensor.nt1
+      - sensor.nrj12
+      - sensor.lcp
+      - sensor.fr4
+

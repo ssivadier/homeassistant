@@ -1,0 +1,37 @@
+  default_view:
+    view: yes
+    icon: mdi:home
+    entities:
+      - group.ymeteotoday
+
+  salon:
+    name: salon
+    view: yes
+    entities:
+      - group.sonde1
+      - group.prisesalon
+      - group.automations_salon
+      - media_player.chromecast_salon
+      - group.lumierestoilettes
+      - group.lumieressalon
+      - group.programme_tv
+
+  chambre:
+    name: chambre
+#    icon: mdi:seat-individual-suite
+    view: yes
+    entities:
+      - group.alarmclock
+
+  sdb:
+    name: sdb
+#    icon: mdi:water-pump
+    view: yes
+    entities:
+      - group.automationssdb
+
+  systeme:
+    view: yes
+    icon: mdi:settings
+    entities:
+      - group.automations

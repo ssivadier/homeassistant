@@ -15,6 +15,45 @@ sensor.broadlink_sensor_temperature:
 sensor.broadlink_sensor_humidity:
   friendly_name: Humidité
   icon: mdi:water-percent
-sensor.mold_indicator:
-  friendly_name: Probabilite de moisissures
-  icon: mdi:percent
+sensor.tf1:
+  friendly_name: TF1
+  icon: mdi:television
+sensor.fr2:
+  friendly_name: France 2
+  icon: mdi:television
+sensor.fr3:
+  friendly_name: France 3
+  icon: mdi:television
+sensor.canal:
+  friendly_name: Canal+
+  icon: mdi:television
+sensor.arte:
+  friendly_name: Arte
+  icon: mdi:television
+sensor.m6:
+  friendly_name: M6
+  icon: mdi:television
+sensor.fr5:
+  friendly_name: France 5
+  icon: mdi:television
+sensor.c8:
+  friendly_name: C8
+  icon: mdi:television
+sensor.w9:
+  friendly_name: W9
+  icon: mdi:television
+sensor.tmc:
+  friendly_name: TMC
+  icon: mdi:television
+sensor.nt1:
+  friendly_name: NT1
+  icon: mdi:television
+sensor.nrj12:
+  friendly_name: Nrj12
+  icon: mdi:television
+sensor.lcp:
+  friendly_name: LCP
+  icon: mdi:television
+sensor.fr4:
+  friendly_name: France 4
+  icon: mdi:television
