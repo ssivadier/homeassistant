@@ -5,14 +5,20 @@
   volets:
     name: Gestion auto des volets
     initial: on
+    icon: mdi:window-open
   lumieresalon:
     name: Lumieres du salon
     initial: on
+    icon: mdi:lightbulb-on
   poubelles:
     name: sortir les poubelles
     initial: on
+    icon: mdi:truck
   alarmstatus:
     name: Wake Me Up
     initial: on
     icon: mdi:alarm-check
-
+  guest_mode:
+    name: guest_mode
+    initial: off
+    icon: mdi:glass-tulip

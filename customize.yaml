@@ -15,6 +15,9 @@ sensor.broadlink_sensor_temperature:
 sensor.broadlink_sensor_humidity:
   friendly_name: Humidité
   icon: mdi:water-percent
+sensor.alarm_time:
+  friendly_name: heure
+  icon: mdi:alarm-multiple
 sensor.tf1:
   friendly_name: TF1
   icon: mdi:television

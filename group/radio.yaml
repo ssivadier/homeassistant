@@ -1,0 +1,6 @@
+  radiog:
+    name: Radio Maison
+    entities:
+      - input_select.radio_station
+      - input_select.chromecast_radio
+      - script.radiolance

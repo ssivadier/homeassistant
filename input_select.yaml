@@ -1,0 +1,12 @@
+  radio_station:
+    name: 'Radio Station:'
+    options:
+      - Franceinfo
+      - Jazz
+      - Nova Sauvagine
+  chromecast_radio:
+    name: 'Select Speakers:'
+    options:
+      - chromecast_salon
+    initial: chromecast_salon
+    icon: mdi:speaker-wireless

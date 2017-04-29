@@ -5,3 +5,9 @@
       - switch.wii
       - switch.television
       - switch.chromecast
+  debits:
+    name: Debits Internet
+    entities:
+      - sensor.speedtest_ping
+      - sensor.speedtest_download
+      - sensor.speedtest_upload

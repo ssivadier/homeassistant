@@ -1,8 +1,5 @@
 - alias: fermer les volets du salon quand la nuit tombe
   trigger:
-#    platform: sun
-#    event: sunset
-#    offset: "-00:10:00"
     platform: numeric_state
     entity_id: sun.sun
     value_template: '{{ state.attributes.elevation }}'
@@ -11,9 +8,6 @@
     - condition: state
       entity_id: input_boolean.volets
       state: 'on'
-#    - condition: state
-#      entity_id: sensor.broadlinklight
-#      state: 'sombre' 
   action:
     - service: switch.turn_off
       entity_id: switch.volet_salon
@@ -28,6 +22,9 @@
     - condition: state
       entity_id: input_boolean.volets
       state: 'on'
+    - condition: state
+      entity_id: input_boolean.guest_mode
+      state: 'off'
   action:
     service: switch.turn_on
     entity_id: switch.volet_salon

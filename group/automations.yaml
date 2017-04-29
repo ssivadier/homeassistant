@@ -5,6 +5,7 @@
       - input_boolean.lumieresalon
       - input_boolean.volets
       - input_boolean.poubelles
+      - input_boolean.guest_mode
       - script.demarre_robot_aspi
       - script.volet_chambre_parents
 

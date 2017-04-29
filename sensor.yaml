@@ -226,3 +226,16 @@
 - platform: command_line
   name: fr4
   command: "cat /home/homeassistant/.homeassistant/scripts/tele/fr4"
+
+- platform: speedtest
+  hour:
+    - 8
+    - 12
+    - 16
+    - 20
+    - 23
+    - 4
+  monitored_conditions:
+    - ping
+    - download
+    - upload

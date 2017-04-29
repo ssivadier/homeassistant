@@ -29,14 +29,16 @@
     entities:
       - group.automationssdb
 
-  tele:
-    name: tele
+  media:
+    name: media
     view: yes
     entities:
       - group.programme_tv
+      - group.radiog
 
   systeme:
     view: yes
     icon: mdi:settings
     entities:
       - group.automations
+      - group.debits
