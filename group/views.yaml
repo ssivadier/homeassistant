@@ -14,7 +14,6 @@
       - media_player.chromecast_salon
       - group.lumierestoilettes
       - group.lumieressalon
-      - group.programme_tv
 
   chambre:
     name: chambre
@@ -29,6 +28,12 @@
     view: yes
     entities:
       - group.automationssdb
+
+  tele:
+    name: tele
+    view: yes
+    entities:
+      - group.programme_tv
 
   systeme:
     view: yes

@@ -1,0 +1,18 @@
+  bonjour:
+    name: Service bonjour
+    initial: on
+    icon: mdi:comment-text
+  volets:
+    name: Gestion auto des volets
+    initial: on
+  lumieresalon:
+    name: Lumieres du salon
+    initial: on
+  poubelles:
+    name: sortir les poubelles
+    initial: on
+  alarmstatus:
+    name: Wake Me Up
+    initial: on
+    icon: mdi:alarm-check
+

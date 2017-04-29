@@ -1,0 +1,42 @@
+  annoncematin:
+    alias: Matin
+    sequence:
+      - alias: Annonce Matin
+        service: tts.google_say
+        entity_id: media_player.chromecast_salon
+        data_template:
+          message: "{{ ['Bonjour','Comment allez vous?','Heureux de vous voir'] | random }}. La météo prévoit, {{ states.sensor.meteotoday.state }} pour aujourd'hui. La température extérieure est de {{ states.sensor.tempext_temperature.state | round }} degrés."
+          cache: false
+  demarre_robot_aspi:
+    alias: Demarre Robot Aspirateur
+    sequence:
+      - service: broadlink.send_packet_192_168_0_25
+        data:
+          packet:
+# bouton power            - "JgAwApSREjcSEhMSEhITEhISExISNhM2ExITERMSExETEhMREzYTEhMRExITERMSExETEhISEzYTNhM2EzYTNhM2EzYTNhMAA7aTkRM2ExITERMSExETEhMREzYTNhMSExETEhISExISEhM2ExETEhMRExITERMSExETEhM2EzYTNhM2EjcSNxI3EjYTAAO2lJETNhMSEhITEhISExISEhM2EzYTERMSExETEhMRExITNhMRExITERMSExETEhISExISNxI3EjYTNhM2EzYTNhM2EwADtpSREzYTERMSExETEhMRExITNhM2ExETEhMRExISEhMSEjcSEhMSEhITEhISExETEhMREzYTNhM2EzYTNhM2EzYTNhMAA7aUkRM2ExETEhMRExISEhMSEjcSNxISExISEhMRExITERM2ExITERMSExETEhMRExITERM2EzYTNhM2EzYTNhM2EzYTAAO2k5ISNxISExISEhMSEhITEhI2EzYTEhMRExITERMSExETNhMSExETEhISExISEhMSEhITNhM2EzYTNhM2EzYTNhM2EwADtpOREzYTEhMRExITERMSExETNhM2ExISEhMSEhITEhISEzYTEhISExETEhMRExITERMSEzYTNhM2EzYSNxI3EjcSNhMAA7aUkRM2ExISEhMSEhITEhISEzYTNhMSEhITERMSExETEhM2ExETEhMRExITERMSEhITEhI3EjcSNhM3EjYTNhM2EzYTAA0FExITERMSEzY="
+            - "JgDSAJSREzYTEhISExISEhMSEhITNhM2ExETEhMRExITERMSEzYTERMSExETNhMSExETEhISEzYTNhM2ExETNhM2EzYTNhMAA7aUkRM2ExETEhMRExITERMSEzYTNhMRExITERMSExETEhM2EhITEhISEzYTEhISExETEhM2EzYTNhMREzYTNhM2EzYTAAO2lJETNhMRExITERMSExETEhM2EzYTERMSEhITEhISExISNhMSExETEhM2ExETEhMRExITNhM2EzYTERM2EzYTNhM2EwANBQAAAAAAAA=="
+  demarre_tv_cast:
+    alias: Demarre TV pour chromecast
+    sequence:
+      - service: broadlink.send_packet_192_168_0_25
+        data:
+          packet:
+            - "JgBQAAABJ5MTEhISEzcTEhMSExETEhMSEzYUNhMSEzYTNxM3EzYTNxMSExETEhM3ExITERMSExITNxM2EzcTEhM2EzcTNhM3EwAFQQABJ0gTAA0FAAAAAAAAAAA="
+            - "JgBQAAABJJMSEhISETgSEhITEBMSEhMSETcSNxMREjcSNxI3EjcSOBETERITNhM2EhITERM2EzcRNxI3ExISEhI3EjcRExETEgAFLQABJEoRAA0FAAAAAAAAAAA="
+  news:
+    alias: Les News
+    sequence:
+      - alias: Annonce news
+        service: tts.google_say
+        entity_id: media_player.chromecast_salon
+        data_template:
+          message: "Voici les nouvelles de la journée, {{ states.sensor.news.state }}"
+          cache: false
+  radiateur_sdb:
+    alias: Radiateur sdb
+    sequence:
+      - service: broadlink.send_packet_192_168_0_25
+        data:
+          packet:
+            - "sgOEAw8kDyMgEg8jDyMgEiASECMPIyASIBIgEx8TIBIgEiASIRIPIyASDyMgEiESDyMPI2PsDyMPIyASECIQIyASIBIPIw8jIBMfEiESIBIgEiATIBIgEg8jIBMPIyASIBIPIxAmC0wLJwsnJA4LJwsnCycLJyQPIw4LJyQOJA8LJwsnJA4kDgsnJA4kDgsnJA4kDgsnCycMTAsnCyckDgsnCycLJwsnJA4kDgsnJA4kDgsnCyckDiQOCyckDiQODCYlDiQOCycLJwtMCycLJyQOCycLJwsnCyckDiQOCyckDiQODCcKJyUOJA0MJyQOJA4LJyQOJA4LJwsnDEwLJwonJQ4LJwsnCycLJyQOJA4LJyQOJA4LJwsnJA4kDgsnJA4lDgonJQ4kDgsnCydj6xAiECMgEg8jDyMPIxAjIBIgEg8jIBIgEw8jDyMgEiASECMgEiASECIgEiESDyMPI2PsDyMPIyASECIQIw8jDyMgEiATDyMgEiASECIQIyASIBIPIyASIRIPIyASIBMPIw8jY+sQIhAjIBIPIw8jECIQIx8TIBIPIyASIBMPIw8jIBIgEhAjIBIgEg8jIBIhEg8jDyNj7A8jDyMgEw8jDyMPIw8jIBIgEw8jIBIgEg8jECIhEiASDyMgEyASDyMgEiASECIQJgtMCycLJyQPCigkDiQOJA4LJyQOJA4kDgsnJA4LKAooCicMJgwmDCYkDyMPJA4LJwsnC0wLJwsnJA4LKCMOJA4kDwsnJA4kDiQOCyckDgsnCycLJwsnCycLJyQOJA4kDwsnCycKTQsnCyckDgsnJA4kDiQOCyckDiQPIw8LJyQOCycLJwsnCycLJwsnJA4kDiQOCycLJwtMCycMJiQODCYlDiQOJA4LJyQOJA4kDgsnJA8LJgwmDCYLKAonDCckDiQOJA4LJwsnY+wPIw8jIBIPJB8SIRIgEhAiIBMgEiASDyMgEhAjDyMPIw8jDyMQIx8TIBIgEw8iECNj6xAiECMgEg8jIBIhEiASDyMgEiASIRIPIyASECIQIw8jDyMPIw8jIRIgEiASDyMQI2PrDyMQIiATDyMgEiASIRIPIyASIBMgEg8jIBIPIxAjDyMPIw8jDyMgEx8TIBIPIw8kYuwPIxAiIBMPIyASIBIhEg8jIBIgEiATDyMgEhAjDyIQIw8jDyMQIiATIBIgEg8jDwAF3AAAAAA="
+
