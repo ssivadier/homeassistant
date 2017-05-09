@@ -5,7 +5,7 @@
     state: 'paused'
   condition:
     - condition: state
-      entity_id: light.tradfri_bulb_e14_ws_opal_400lm_2
+      entity_id: light.salon_tele
       state: 'on'
   action:
     - service: light.turn_on
@@ -19,7 +19,7 @@
     state: 'playing'
   condition:
     - condition: state
-      entity_id: light.tradfri_bulb_e14_ws_opal_400lm_2
+      entity_id: light.salon_tele
       state: 'on'
   action:
     - service: light.turn_on
@@ -35,7 +35,7 @@
     from: 'playing'
   condition:
     - condition: state
-      entity_id: light.tradfri_bulb_e14_ws_opal_400lm_2
+      entity_id: light.salon_tele
       state: 'on'
   action:
     - service: light.turn_on

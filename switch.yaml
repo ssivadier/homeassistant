@@ -1,5 +1,5 @@
   - platform: broadlink
-    host: 192.168.0.25
+    host: 192.168.1.25
     mac: '34:ea:34:e7:d3:de'
     name: 'switch broadlink'
     switches:
@@ -16,23 +16,23 @@
         command_off: 'sgKEAw4kDiQfEw8jDyQfEx8TIBMfEw8jDyMgEw8jHxMgEw8jDyMgEx8THxMgEiATDyMPI2PtDyMPIyATDiQPIyATHxMgEiATDiQPIyASDyQfEyATDiQOJB8TIBIgEx8TIBMOJA8nC0wLKAooIw8LJyQOCyckDwooCigKKCMPJA4LJwsnCygKKAooCyckDgsnJA4kDwooCigLTAsnCygjDwooJA4LJyQOCygKKAooJA4kDgsnCycLJwsoCigKKCMPCyckDiQPCigKKApNCygKKCMPCigjDwsnJA4LJwsoCigjDyMPCycLJwsoCigKKAooIw8KKCQOJA8KJwsoC0wLJwsnJA8KKCMPCigkDgsoCicLKCMPJA4LJwsnCycLJwsoCigjDwooJA4kDgsoCihi7Q8jDyMgEw8jIBMOJB8TDyMPJA8jHxMgEw8jDyQOIw8kDyMPIyATDiQfEyASDyQPI2PtDyMPIyATDiQgEg8kHxMPIw8jDyQfEyASDyMPJA8jDyMPJA4kHxMPJB8THxMPIw8kYu0PIw8kHxMPIyATDiQgEg8jDyQOJCASIBMPIw8jDyMPJA8jDyMgEw4kHxMgEw8jDyNj7Q4kDyMgEw4kHxMPJB8TDyMPIw8kHxMfEw8kDiQPIw8kDiQOJCASDyQfEyASDyQOKAtNCicLKCMPCigjDwsnCyckDwooCigKKAooCyckDgsnCygjDwooCigLJyQOJA4LJwsoCk0LKAonJA8KKCMPCycLJyQOCygKKAooCycKKCQOCycLKCMPCigLJwsnJA4kDwooCigKTQsnCyckDwooIw8LJwsnJA4LKAooCigKKAsnJA4LKAooIw8KKAooCyckDiQOCygKKApNCygKKCMPCigjDwsnCygjDwooCigKKAooCyckDgsoCickDwooCigKKCQOJA8KKAooY+wPJA4kHxMPJB8TDyMPJB8TDiQPIw8kDiQPIyATDiQOJB8UDiQOJA8jIBMfEw8jDyRi7Q8jDyQfEw8jIBMOJA4kIBIPJA4kDyMPIw8kHxMPIw8kHxMPIw8kDiQfEyATDiQOJGPsECMPIyASDyQfEw8jDyQfEw8jDyQOJA8jDyMgEw4kDyMgEw4kDyMPJB8THxMPIw8kYu0PJA4kIBIPIyATDiQPJB8TDiQPIw8kDiQPIyATDiQOJCATDiMQIw8jIBMfEw8jDwAF3AAAAAA='
 
   - platform: broadlink
-    host: 192.168.0.12
+    host: 192.168.1.12
     mac: '34:ea:34:d9:f1:92'
     type: mp1-1
     friendly_name: 'Lampe Salon'
   - platform: broadlink
-    host: 192.168.0.12
+    host: 192.168.1.12
     mac: '34:ea:34:d9:f1:92'
     type: mp1-2
     name: wii
     friendly_name: 'Wii'
   - platform: broadlink
-    host: 192.168.0.12
+    host: 192.168.1.12
     mac: '34:ea:34:d9:f1:92'
     type: mp1-3
     friendly_name: 'Television'
   - platform: broadlink
-    host: 192.168.0.12
+    host: 192.168.1.12
     mac: '34:ea:34:d9:f1:92'
     type: mp1-4
     friendly_name: 'chromecast'
