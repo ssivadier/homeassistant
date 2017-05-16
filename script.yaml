@@ -51,5 +51,11 @@
             {% if is_state("input_select.radio_station", "Franceinfo") %} http://direct.franceinfo.fr/live/franceinfo-midfi.mp3
             {% elif is_state("input_select.radio_station", "Jazz") %} http://jazzradio.ice.infomaniak.ch/jazzradio-high.mp3
             {% elif is_state("input_select.radio_station", "Nova Sauvagine") %} http://broadcast.infomaniak.ch/snb-high.mp3
+            {% elif is_state("input_select.radio_station", "Fun Radio") %} http://streaming.radio.funradio.fr/fun-1-48-192 
+            {% elif is_state("input_select.radio_station", "NRJ") %} http://cdn.nrjaudio.fm/audio1/fr/40050/mp3_128.mp3 
+            {% elif is_state("input_select.radio_station", "Rires et Chansons") %} http://cdn.nrjaudio.fm/audio1/fr/30401/mp3_128.mp3?origine=fluxradios 
+            {% elif is_state("input_select.radio_station", "RTL2") %} http://icecast.rtl.fr/rtl2-1-44-128 
+            {% elif is_state("input_select.radio_station", "Sud Radio") %} http://start-sud.ice.infomaniak.ch/start-sud-high.mp3 
+            {% elif is_state("input_select.radio_station", "Wit FM") %} http://start-witfm.ice.infomaniak.ch/start-witfm-high.mp3
             {% endif %}
            media_content_type: 'audio/mp4'

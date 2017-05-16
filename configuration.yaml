@@ -33,6 +33,15 @@ sun:
 
 #device_tracker:
 #  - platform: bluetooth_le_tracker
+device_tracker:
+  - platform: tplink
+    host: 192.168.1.1
+    username: admin
+    password: admin
+    interval_seconds: 60
+    consider_home: 180
+    track_new_devices: yes
+
 google:
   client_id: 612631300023-ji3q2iopvtepq4cusdsip8m001q29m21.apps.googleusercontent.com
   client_secret: pivmq-T1XzSujXD9rxHB8c3r
@@ -75,7 +84,7 @@ input_slider:
   alarmhour:
     name: Hour
     icon: mdi:timer
-    initial: 7 
+    initial: 8  
     min: 0
     max: 23
     step: 1

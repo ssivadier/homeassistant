@@ -4,6 +4,12 @@
       - Franceinfo
       - Jazz
       - Nova Sauvagine
+      - Fun Radio
+      - NRJ
+      - Rires et Chansons
+      - RTL2
+      - Sud Radio
+      - Wit FM
   chromecast_radio:
     name: 'Select Speakers:'
     options:

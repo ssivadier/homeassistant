@@ -4,21 +4,21 @@
     minutes: '/1'
     seconds: 0
   condition:
-    - condition: state
-      entity_id: input_boolean.alarmstatus
-      state: 'on'
+#    - condition: state
+#      entity_id: input_boolean.alarmstatus
+#      state: 'on'
     - condition: template
-      value_template: '{{ now().strftime("%-H") == states.input_slider.alarmhour.state and now().strftime("%-M") == states.input_slider.alarmminutes.state }}'
-    - condition: state
-      entity_id: calendar.jours_feries_en_france
-      state: 'off'
-    - condition: time
-      weekday:
-        - mon
-        - tue
-        - wed
-        - thu
-        - fri
+      value_template: '{{ (now().strftime("%s") | timestamp_custom("%H:%M") == states.sensor.alarm_time.state)}}'
+#    - condition: state
+#      entity_id: calendar.jours_feries_en_france
+#      state: 'off'
+#    - condition: time
+#      weekday:
+#        - mon
+#        - tue
+#        - wed
+#        - thu
+#        - fri
   action:
     - service: notify.notifier_seb
       data:

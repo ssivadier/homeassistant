@@ -158,15 +158,16 @@
       value_template: '{% if as_timestamp(states.calendar.ordures.attributes.start_time) - as_timestamp(now().strftime("%Y-%m-%d %H:%M:%S")) < 900  %}on{% else %}off{% endif %}'
 - platform: template
   sensors:
-    alarm_hour:
-      friendly_name: 'Hour'
-      value_template: '{{ states("input_slider.alarmhour") | round(0) }}'
-    alarm_minutes:
-      friendly_name: 'Minutes'
-      value_template: '{{ states("input_slider.alarmminutes") | round(0) }}'
+#    alarm_hour:
+#      friendly_name: 'Hour'
+#      value_template: '{{ states("input_slider.alarmhour") | round(0) }}'
+#    alarm_minutes:
+#      friendly_name: 'Minutes'
+#      value_template: '{{ states("input_slider.alarmminutes") | round(0) }}'
     alarm_time:
       friendly_name: 'Time'
-      value_template: '{{ states("sensor.alarm_hour") }}:{% if states("sensor.alarm_minutes")|length == 1 %}0{% endif %}{{ states("sensor.alarm_minutes") }}'
+      #value_template: '{{ states("sensor.alarm_hour") }}:{% if states("sensor.alarm_minutes")|length == 1 %}0{% endif %}{{ states("sensor.alarm_minutes") }}'
+      value_template: '{{ "%0.02d:%0.02d" | format(states("input_slider.alarmhour") | int, states("input_slider.alarmminutes") | int) }}'
 - platform: command_line
   name: news
   command: "cat /home/homeassistant/.homeassistant/scripts/news.txt"
