@@ -94,3 +94,11 @@ bc54361be354:
   picture:
   track: true
   vendor: Apple, Inc.
+
+a0f4599be81b:
+  hide_if_away: false
+  mac: A0:F4:59:9B:E8:1B
+  name: a0f4599be81b
+  picture:
+  track: true
+  vendor: FN-LINK TECHNOLOGY LIMITED

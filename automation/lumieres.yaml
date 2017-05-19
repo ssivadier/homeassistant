@@ -10,3 +10,15 @@
       data:
         brightness: 254 
 
+- alias: allumer la chambre quand on eteind le salon pour aller au lit
+  trigger:
+    platform: state
+    entity_id: light.salon_tele
+    to: 'off'
+    from: 'on'
+  action:
+    - service: light.turn_on
+      entity_id: group.lumiereschambre
+      data:
+        brightness: 254
+

@@ -12,7 +12,7 @@
       - group.prisesalon
       - group.automations_salon
       - media_player.chromecast_salon
-      - group.lumierestoilettes
+      - group.lumierescouloir
       - group.lumieressalon
 
   chambre:

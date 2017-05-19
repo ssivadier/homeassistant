@@ -3,10 +3,11 @@
     entities:
       - light.salon_canape
       - light.salon_tele
-  lumierestoilettes:
-    name: Lumieres Toilettes
+  lumierescouloir:
+    name: Lumieres Couloir
     entities:
-      - light.toilettes
+      - light.couloir1
+      - light.couloir2
   lumiereschambre:
     name: Lumieres Chambre
     entities:
