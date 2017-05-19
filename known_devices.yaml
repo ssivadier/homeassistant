@@ -86,3 +86,11 @@ f0038c851fc1:
   picture:
   track: true
   vendor: SAMSUNG ELECTRO-MECHANICS(THAILAND)
+
+bc54361be354:
+  hide_if_away: false
+  mac: BC:54:36:1B:E3:54
+  name: bc54361be354
+  picture:
+  track: true
+  vendor: Apple, Inc.

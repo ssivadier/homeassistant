@@ -21,6 +21,7 @@
     view: yes
     entities:
       - group.alarmclock
+      - group.lumiereschambre
 
   sdb:
     name: sdb
