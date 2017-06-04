@@ -8,22 +8,8 @@
     - air_quality
     - light
     - noise
-#- platform: yweather
-#  woeid: 22145400
-#  forecast: 1
-#  monitored_conditions:
-#    - weather
-#    - weather_current
-#    - temp_min
-#    - temp_max
-#    - wind_speed
-#    - pressure
-#    - visibility
-#    - humidity
-#    - temperature
 - platform: yweather
-  woeid: 22145400
-#  name: ymeteotoday
+  woeid: !secret woeid
   monitored_conditions:
     - weather_current
     - wind_speed
@@ -160,11 +146,11 @@
   sensors:
     alarm_time:
       friendly_name: 'Time'
-      #value_template: '{{ states("sensor.alarm_hour") }}:{% if states("sensor.alarm_minutes")|length == 1 %}0{% endif %}{{ states("sensor.alarm_minutes") }}'
       value_template: '{{ "%0.02d:%0.02d" | format(states("input_slider.alarmhour") | int, states("input_slider.alarmminutes") | int) }}'
     alarm_time_now:
       friendly_name: 'Test'
       value_template: '{{ now().strftime("%H:%M") }}'
+
 - platform: command_line
   name: news
   command: "cat /home/homeassistant/.homeassistant/scripts/news.txt"
@@ -237,3 +223,9 @@
     - ping
     - download
     - upload
+
+- platform: google_travel_time
+  name: maps_domicile_travail
+  api_key: !secret maps_api
+  origin: !secret maison
+  destination: !secret travail

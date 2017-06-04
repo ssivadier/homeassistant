@@ -7,60 +7,55 @@ homeassistant:
   time_zone: Europe/Paris
   customize: !include customize.yaml
 
-
-#introduction:
-
-#frontend:
-
-http:
-#  api_password: 150216
-#  ssl_certificate: /etc/letsencrypt/live/kleans.duckdns.org/fullchain.pem
-#  ssl_key: /etc/letsencrypt/live/kleans.duckdns.org/privkey.pem
-#  base_url: kleans.duckdns.org:8123
-#  base_url: kleans.duckdns.org:443
+#http:
 
 updater:
 
-discovery:
+#discovery:
 
 conversation:
 
 history:
 
+# Recorder
+recorder:
+  purge_days: 7
+  exclude:
+    domains:
+      - updater
+      - automation
+
 logbook:
 
 sun:
 
-#device_tracker:
-#  - platform: bluetooth_le_tracker
 device_tracker:
   - platform: tplink
-    host: 192.168.1.1
-    username: admin
-    password: admin
-    interval_seconds: 60
+    host: !secret tplink_ip
+    username: !secret tplink_user
+    password: !secret tplink_pass
+    interval_seconds: 120
     consider_home: 180
     track_new_devices: yes
 
 google:
-  client_id: 612631300023-ji3q2iopvtepq4cusdsip8m001q29m21.apps.googleusercontent.com
-  client_secret: pivmq-T1XzSujXD9rxHB8c3r
+  client_id: !secret google_id
+  client_secret: !secret google_secret
 
-panel_iframe:
-  router:
-    title: 'Routeur'
-    icon: 'mdi:router-wireless'
-    url: 'http://192.168.1.1'
+telegram_bot:
+  - platform: polling
+    api_key: !secret telegram_key
+    allowed_chat_ids:
+      - !secret telegram_chatseb
+      - !secret telegram_chatklem
 
 notify:
   - name: notifier_seb
     platform: telegram
-    api_key: 324726208:AAFID-JexILPVFCqGoS2EIPLc3zG0AMXEiU
-    chat_id: 258006500
+    chat_id: !secret telegram_chatseb
   - name: notifier_klem
     platform: telegram
-    api_key: 324726208:AAFID-JexILPVFCqGoS2EIPLc3zG0AMXEiU
-    chat_id: 371727511 
+    chat_id: !secret telegram_chatklem
 
 tts:
   platform: google

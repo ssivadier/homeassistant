@@ -6,8 +6,8 @@
   action:
     - service: notify.notifier_seb
       data:
-        message: "HomeAssistant {{ states('updater.updater') }} est disponible"
-        title: "Update HASS"
+        message: "HomeAssistant version {{ states('updater.updater') }} est disponible"
+        title: "Mise a jour"
     - service: persistent_notification.create
       data:
         title: "Update Available"

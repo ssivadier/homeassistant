@@ -2,7 +2,7 @@
   trigger:
     platform: state
     entity_id: media_player.chromecast_salon
-    state: 'paused'
+    from: 'playing'
   condition:
     - condition: state
       entity_id: light.salon_tele
@@ -11,12 +11,12 @@
     - service: light.turn_on
       entity_id: group.lumieressalon
       data:
-        brightness: 254
+        brightness: 255
 - alias: "Chromecast playing"
   trigger:
     platform: state
     entity_id: media_player.chromecast_salon
-    state: 'playing'
+    to: 'playing'
   condition:
     - condition: state
       entity_id: light.salon_tele
@@ -27,19 +27,4 @@
       data:
         transition: 50
         brightness: 15
-- alias: "Chromecast stopped"
-  trigger:
-    platform: state
-    entity_id: media_player.chromecast_salon
-    to: 'stopped'
-    from: 'playing'
-  condition:
-    - condition: state
-      entity_id: light.salon_tele
-      state: 'on'
-  action:
-    - service: light.turn_on
-      entity_id: group.lumieressalon
-      data:
-        brightness: 254
 

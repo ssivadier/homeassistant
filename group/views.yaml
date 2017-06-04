@@ -22,6 +22,7 @@
     entities:
       - group.alarmclock
       - group.lumiereschambre
+      - media_player.chromecast_chambre
 
   sdb:
     name: sdb

@@ -102,3 +102,11 @@ a0f4599be81b:
   picture:
   track: true
   vendor: FN-LINK TECHNOLOGY LIMITED
+
+546009a65b86:
+  hide_if_away: false
+  mac: 54:60:09:A6:5B:86
+  name: 546009a65b86
+  picture:
+  track: true
+  vendor: Google, Inc.

@@ -20,24 +20,26 @@
         - thu
         - fri
   action:
-    - service: homeassistant.turn_on
+    - service: notify.notifier_seb
+      data:
+        message: "{{ ['Bonjour','Bonjour Monsieur','Salut Sébastien'] | random }}. Il faut se lever. Il est {{ states.sensor.alarm_time.state }}. La température exterieure est de {{ states.sensor.yweather_temperature.state }} degrés. La météo prévoit {{ states.sensor.forecast.state }}. Il vous faudra {{ states.sensor.maps_domicile_travail.state }} minutes pour aller au travail."
+    - service: light.turn_on
       entity_id:
         - light.chambreseb
       data:
-        brightness: 2
-    - delay: 00:00:35
-    - service: homeassistant.turn_on
+        brightness: 10 
+    - delay:
+        seconds: 30
+    - service: light.turn_on
       entity_id:
         - light.chambreseb
       data:
-        brightness: 10
-    - delay: 00:00:35
-    - service: homeassistant.turn_on
+        brightness: 15
+    - delay:
+        seconds: 30
+    - service: light.turn_on
       entity_id:
         - light.chambreseb
       data:
         brightness: 20 
-    - service: notify.notifier_seb
-      data:
-        message: 'Bonjour. Il faut se lever, il est {{ states.sensor.alarm_time.state }}. La temperature exterieure est de {{ states.sensor.yweather_temperature.state }} degrés et la météo prévoit {{ states.sensor.forecast.state }}.'
 

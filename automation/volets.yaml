@@ -13,7 +13,7 @@
       entity_id: switch.volet_salon
     - service: notify.notifier_seb
       data:
-        message: Les volets du salon sont fermes !
+        message: Les volets du salon sont fermés !
 - alias: ouvrir les volets du salon quand le jour se leve
   trigger:
     platform: sun
