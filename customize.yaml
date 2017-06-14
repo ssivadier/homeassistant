@@ -15,6 +15,12 @@ sensor.broadlink_sensor_temperature:
 sensor.broadlink_sensor_humidity:
   friendly_name: Humidité
   icon: mdi:water-percent
+device_tracker.546009a65b86:
+  friendly_name: Telephone Klem
+  icon: mdi:cellphone-android
+device_tracker.cc61e5bfb0cb:
+  friendly_name: Telephone Seb
+  icon: mdi:cellphone-android
 sensor.alarm_time:
   friendly_name: heure
   icon: mdi:alarm-multiple

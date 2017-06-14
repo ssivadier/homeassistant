@@ -1,4 +1,4 @@
-- alias: fermer les volets du salon quand la nuit tombe
+- alias: fermer les volets du salon quand la nuit tombe et que je suis a la maison
   trigger:
     platform: numeric_state
     entity_id: sun.sun
@@ -8,13 +8,14 @@
     - condition: state
       entity_id: input_boolean.volets
       state: 'on'
+    - condition: state
+      entity_id: device_tracker.cc61e5bfb0cb
+      state: 'home'
   action:
     - service: switch.turn_off
       entity_id: switch.volet_salon
-    - service: notify.notifier_seb
-      data:
-        message: Les volets du salon sont fermés !
-- alias: ouvrir les volets du salon quand le jour se leve
+
+- alias: ouvrir les volets du salon quand le jour se leve et que je suis a la maison
   trigger:
     platform: sun
     event: sunrise
@@ -25,6 +26,74 @@
     - condition: state
       entity_id: input_boolean.guest_mode
       state: 'off'
+    - condition: state
+      entity_id: device_tracker.cc61e5bfb0cb
+      state: 'home'
   action:
     service: switch.turn_on
     entity_id: switch.volet_salon
+
+- alias: Fermer les volets si je ne suis pas a la maison
+  hide_entity: true
+  trigger:
+    platform: numeric_state
+    entity_id: sun.sun
+    value_template: '{{ state.attributes.elevation }}'
+    below: 0.5
+  condition:
+    - condition: state
+      entity_id: input_boolean.volets
+      state: 'on'
+    - condition: state
+      entity_id: device_tracker.cc61e5bfb0cb
+      state: 'not home'
+  action:
+    - service: notify.notifier_seb
+      data:
+        message: 'Monsieur, Voulez vous fermer les volets ?'
+        data:
+          keyboard:
+            - '/Fermer'
+            - '/Laisser'
+
+- alias: 'Confirmation de fermeture si je ne suis pas a la maison'
+  trigger:
+    platform: event
+    event_type: telegram_command
+    event_data:
+      command: '/Fermer'
+  action:
+    - service: switch.turn_off
+      entity_id: switch.volet_salon
+    - service: notify.notifier_seb
+      data:
+        message: 'Les volets sont fermés.'
+
+- alias: 'Confirmation que ha laisse ouvert si je ne suis pas a la maison'
+  trigger:
+    platform: event
+    event_type: telegram_command
+    event_data:
+      command: '/Laisser'
+  action:
+    - service: notify.notifier_seb
+      data:
+        message: 'Les volets sont restés ouverts.'
+
+- alias: fermer en partie les volets si trop chaud
+  trigger:
+    platform: numeric_state
+    entity_id: sensor.broadlink_sensor_temperature
+    above: 27 
+  condition:
+    - condition: state
+      entity_id: input_boolean.volets
+      state: 'on'
+  action:
+    - service: switch.turn_off
+      entity_id: switch.volet_salon
+    - delay:
+        seconds: 3
+    - service: switch.turn_off
+      entity_id: switch.volet_salon
+

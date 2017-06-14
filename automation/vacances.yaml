@@ -1,0 +1,38 @@
+- alias: 'Demande du mode vacances'
+  hide_entity: true
+  trigger:
+    platform: event
+    event_type: telegram_command
+    event_data:
+      command: '/vacances'
+  action:
+    - service: notify.notifier_seb
+      data:
+        message: 'Monsieur, Voulez vous changer le mode vacances ?'
+        data:
+          keyboard:
+            - 'Activer'
+            - 'Desactiver'
+
+- alias: 'Passage en mode vacance'
+  trigger:
+    platform: event
+    event_type: telegram_command
+    event_data:
+      command: '/Activer'
+  action:
+    - service: notify.notifier_seb
+      data:
+        message: 'Activation du mode vacance.'
+
+- alias: 'Passage en mode vacance'
+  trigger:
+    platform: event
+    event_type: telegram_command
+    event_data:
+      command: '/Desactiver'
+  action:
+    - service: notify.notifier_seb
+      data:
+        message: 'Desactivation du mode vacance.'
+

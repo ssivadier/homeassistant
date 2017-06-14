@@ -3,6 +3,7 @@
     icon: mdi:home
     entities:
       - group.ymeteotoday
+      - group.presence
 
   salon:
     name: salon

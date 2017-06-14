@@ -4,7 +4,7 @@
   mac: 34:EA:34:D9:F1:92
   name: 34ea34d9f192
   picture:
-  track: true
+  track: false
   vendor: HangZhou Gubei Electronics Technology Co.,Ltd
 
 ec9bf3786e6f:
@@ -20,7 +20,7 @@ ec9bf3786e6f:
   mac: 34:EA:34:E7:D3:DE
   name: 34ea34e7d3de
   picture:
-  track: true
+  track: false
   vendor: HangZhou Gubei Electronics Technology Co.,Ltd
 
 b827eb0e677d:
@@ -28,7 +28,7 @@ b827eb0e677d:
   mac: B8:27:EB:0E:67:7D
   name: raspberry
   picture:
-  track: true
+  track: false
   vendor: Raspberry Pi Foundation
 
 cc61e5bfb0cb:
@@ -52,7 +52,7 @@ cc61e5bfb0cb:
   mac: 34:EA:34:E5:30:DC
   name: 34ea34e530dc
   picture:
-  track: true
+  track: false
   vendor: HangZhou Gubei Electronics Technology Co.,Ltd
 
 001644e54ce1:
@@ -60,7 +60,7 @@ cc61e5bfb0cb:
   mac: 00:16:44:E5:4C:E1
   name: 001644e54ce1
   picture:
-  track: true
+  track: false
   vendor: LITE-ON Technology Corp.
 
 b6a33a997943:
@@ -110,3 +110,21 @@ a0f4599be81b:
   picture:
   track: true
   vendor: Google, Inc.
+
+9c65f915da93:
+  hide_if_away: false
+  icon:
+  mac: 9C:65:F9:15:DA:93
+  name: 9c65f915da93
+  picture:
+  track: true
+  vendor: AcSiP Technology Corp.
+
+1002b54c761f:
+  hide_if_away: false
+  icon:
+  mac: 10:02:B5:4C:76:1F
+  name: 1002b54c761f
+  picture:
+  track: true
+  vendor: Intel Corporate

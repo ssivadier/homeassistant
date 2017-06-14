@@ -1,0 +1,5 @@
+  presence:
+    name: Presence
+    entities:
+      - device_tracker.cc61e5bfb0cb
+      - device_tracker.546009a65b86
