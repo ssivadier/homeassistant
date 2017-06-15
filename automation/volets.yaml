@@ -84,7 +84,7 @@
   trigger:
     platform: numeric_state
     entity_id: sensor.broadlink_sensor_temperature
-    above: 27 
+    above: 27.0
   condition:
     - condition: state
       entity_id: input_boolean.volets
@@ -93,7 +93,7 @@
     - service: switch.turn_off
       entity_id: switch.volet_salon
     - delay:
-        seconds: 3
+        seconds: 15
     - service: switch.turn_off
       entity_id: switch.volet_salon
 
