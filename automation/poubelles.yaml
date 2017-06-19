@@ -8,6 +8,9 @@
     - condition: state
       entity_id: input_boolean.poubelles
       state: 'on'
+    - condition: state
+      entity_id: input_boolean.vacances
+      state: 'off'
   action:
     - service: notify.notifier_seb
       data:

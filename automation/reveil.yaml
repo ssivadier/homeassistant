@@ -7,6 +7,9 @@
     - condition: state
       entity_id: input_boolean.alarmstatus
       state: 'on'
+    - condition: state
+      entity_id: input_boolean.vacances
+      state: 'off'
     - condition: template
       value_template: '{{ now().strftime("%H:%M") == states.sensor.alarm_time.state }}'
     - condition: state
