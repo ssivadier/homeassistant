@@ -29,7 +29,7 @@
     - service: switch.turn_off
       entity_id: switch.chaudiere
     - service: switch.turn_off
-      entity_id: switch.tv_lg_salon
+      entity_id: switch.television
     - service: switch.turn_off
       entity_id: switch.wii
 
@@ -48,5 +48,5 @@
     - service: switch.turn_on
       entity_id: switch.chaudiere
     - service: switch.turn_on
-      entity_id: switch.tv_lg_salon
+      entity_id: switch.television
 
