@@ -6,6 +6,7 @@
       - input_boolean.volets
       - input_boolean.poubelles
       - input_boolean.guest_mode
+      - input_boolean.vacances
       - script.demarre_robot_aspi
       - script.volet_chambre_parents
 

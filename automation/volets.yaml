@@ -46,7 +46,7 @@
       state: 'on'
     - condition: state
       entity_id: device_tracker.cc61e5bfb0cb
-      state: 'not home'
+      state: 'not_home'
   action:
     - service: notify.notifier_seb
       data:

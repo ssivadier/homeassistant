@@ -11,8 +11,8 @@
         message: 'Monsieur, Voulez vous changer le mode vacances ?'
         data:
           keyboard:
-            - 'Activer'
-            - 'Desactiver'
+            - '/Activer'
+            - '/Desactiver'
 
 - alias: 'Passage en mode vacance'
   trigger:
@@ -24,6 +24,14 @@
     - service: notify.notifier_seb
       data:
         message: 'Activation du mode vacance.'
+    - service: homeassistant.turn_on
+      entity_id: input_boolean.vacances
+    - service: switch.turn_off
+      entity_id: switch.chaudiere
+    - service: switch.turn_off
+      entity_id: switch.tv_lg_salon
+    - service: switch.turn_off
+      entity_id: switch.wii
 
 - alias: 'Passage en mode vacance'
   trigger:
@@ -35,4 +43,10 @@
     - service: notify.notifier_seb
       data:
         message: 'Desactivation du mode vacance.'
+    - service: homeassistant.turn_off
+      entity_id: input_boolean.vacances
+    - service: switch.turn_on
+      entity_id: switch.chaudiere
+    - service: switch.turn_on
+      entity_id: switch.tv_lg_salon
 

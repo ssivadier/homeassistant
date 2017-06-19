@@ -16,9 +16,23 @@
     entity_id: light.salon_tele
     to: 'off'
     from: 'on'
+  condition:
+    - condition: state
+      entity_id: input_boolean.vacances
+      state: 'off'
   action:
     - service: light.turn_on
       entity_id: group.lumiereschambre
       data:
         brightness: 254
+
+- alias: allumer les lumieres quand le soir tombe
+  trigger:
+    platform: time
+    at: '22:35:00'
+  action:
+    - service: light.turn_on
+      entity_id: group.lumieressalon
+      data:
+        brightness: 0
 

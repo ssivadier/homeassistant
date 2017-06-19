@@ -19,6 +19,10 @@
     initial: on
     icon: mdi:alarm-check
   guest_mode:
-    name: guest_mode
+    name: Guest mode
     initial: off
     icon: mdi:glass-tulip
+  vacances:
+    name: Vacances
+    initial: off
+    icon: mdi:airplane-takeoff
