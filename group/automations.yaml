@@ -23,3 +23,8 @@
       - script.annoncematin
       - switch.volet_salon
 
+  automations_chambre:
+    name: Automations de la chambre
+    entities:
+      - switch.volet_chambre
+

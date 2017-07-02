@@ -128,3 +128,12 @@ a0f4599be81b:
   picture:
   track: true
   vendor: Intel Corporate
+
+002637bdf9c3:
+  hide_if_away: false
+  icon:
+  mac: 00:26:37:BD:F9:C3
+  name: 002637bdf9c3
+  picture:
+  track: true
+  vendor: SAMSUNG ELECTRO MECHANICS CO., LTD.

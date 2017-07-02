@@ -24,6 +24,7 @@
       - group.alarmclock
       - group.lumiereschambre
       - media_player.chromecast_chambre
+      - group.automations_chambre
 
   sdb:
     name: sdb

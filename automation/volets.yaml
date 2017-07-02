@@ -14,6 +14,8 @@
   action:
     - service: switch.turn_off
       entity_id: switch.volet_salon
+    - service: switch.turn_off
+      entity_id: switch.volet_chambre
 
 - alias: ouvrir les volets du salon quand le jour se leve et que je suis a la maison
   trigger:
@@ -65,6 +67,8 @@
   action:
     - service: switch.turn_off
       entity_id: switch.volet_salon
+    - service: switch.turn_off
+      entity_id: switch.volet_chambre
     - service: notify.notifier_seb
       data:
         message: 'Les volets sont fermés.'
