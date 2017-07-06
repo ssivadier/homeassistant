@@ -11,7 +11,7 @@ homeassistant:
 
 updater:
 
-#discovery:
+discovery:
 
 conversation:
 
