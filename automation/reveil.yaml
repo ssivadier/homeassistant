@@ -25,10 +25,10 @@
   action:
     - service: notify.notifier_seb
       data:
-        message: "{{ ['Bonjour','Bonjour Monsieur','Monsieur'] | random }}, Il est l'heure de se lever. Il est {{ states.sensor.alarm_time.state }}. La température exterieure est de {{ states.sensor.yweather_temperature.state }} degrés, et il fait {{ states.sensor.forecast.state }}. {%- if states.sensor.maps_domicile_travail.state | int < 14 -%}
+        message: "{{ ['Bonjour','Bonjour Monsieur','Monsieur'] | random }}, Il est l'heure de se lever. Il est {{ states.sensor.alarm_time.state }}. La température exterieure est de {{ states.sensor.yweather_temperature.state }} degrés, et il fait {{ states.sensor.forecast.state }}. {%- if states.sensor.maps_domicile_travail_seb.state | int < 14 -%}
  Il n'y a pas de monde sur la route pour aller au travail
 {%- else -%}
- Attention la route est chargée il vous faudra {{ states.sensor.maps_domicile_travail.state }} minutes pour aller au travail{%- endif %}."
+ Attention la route est chargée il vous faudra {{ states.sensor.maps_domicile_travail_seb.state }} minutes pour aller au travail{%- endif %}."
  #   - service: light.turn_on
  #     entity_id:
  #       - light.chambreseb

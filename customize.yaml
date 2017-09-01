@@ -66,3 +66,9 @@ sensor.lcp:
 sensor.fr4:
   friendly_name: France 4
   icon: mdi:television
+sensor.maps_domicile_travail_seb:
+  friendly_name: Seb Domicile -> Travail
+  icon: mdi:car
+sensor.maps_domicile_travail_klem:
+  friendly_name: Klem Domicile -> Travail
+  icon: mdi:car

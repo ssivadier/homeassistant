@@ -1,0 +1,7 @@
+  trajets:
+    name: Trajets
+    entities:
+      - sensor.maps_domicile_travail_seb
+      - sensor.maps_domicile_travail_klem
+
+

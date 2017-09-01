@@ -69,6 +69,7 @@
         {%- elif (states.sensor.yweather_current.state == "Clear") -%} un temps dégagé
         {%- elif (states.sensor.yweather_current.state == "Breezy") -%} du vent
         {%- elif (states.sensor.yweather_current.state == "Mostly Sunny") -%} un temps principalement ensoleillé
+        {%- elif (states.sensor.yweather_current.state == "Mostly Clear") -%} un temps dégagé
         {%- else -%} {{ states.sensor.yweather_current.state }}
         {%- endif %}
       icon_template: mdi:weather-partlycloudy
@@ -225,7 +226,13 @@
     - upload
 
 - platform: google_travel_time
-  name: maps_domicile_travail
+  name: maps_domicile_travail_seb
   api_key: !secret maps_api
   origin: !secret maison
-  destination: !secret travail
+  destination: !secret travailseb
+  
+- platform: google_travel_time
+  name: maps_domicile_travail_klem
+  api_key: !secret maps_api
+  origin: !secret maison
+  destination: !secret travailklem

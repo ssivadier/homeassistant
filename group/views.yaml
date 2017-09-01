@@ -3,6 +3,8 @@
     icon: mdi:home
     entities:
       - group.ymeteotoday
+      - group.trajets
+      - mediaplayer.cuisine
       #      - group.presence
 
   salon:
@@ -13,6 +15,7 @@
       - group.prisesalon
       - group.automations_salon
       - media_player.chromecast_salon
+      - media_player.salon
       - group.lumierescouloir
       - group.lumieressalon
 
@@ -32,6 +35,7 @@
     view: yes
     entities:
       - group.automationssdb
+      - mediaplayer.sdb
 
   media:
     name: media
