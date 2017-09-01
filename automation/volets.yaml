@@ -3,7 +3,7 @@
     platform: numeric_state
     entity_id: sun.sun
     value_template: '{{ state.attributes.elevation }}'
-    below: 0.5
+    below: 0.2
   condition:
     - condition: state
       entity_id: input_boolean.volets
@@ -11,6 +11,25 @@
     - condition: state
       entity_id: device_tracker.cc61e5bfb0cb
       state: 'home'
+    - condition: state
+      entity_id: input_boolean.vacances
+      state: 'off'
+  action:
+    - service: switch.turn_off
+      entity_id: switch.volet_salon
+    - service: switch.turn_off
+      entity_id: switch.volet_chambre
+
+- alias: fermer les volets du salon si le mode vacance est active
+  trigger:
+    platform: numeric_state
+    entity_id: sun.sun
+    value_template: '{{ state.attributes.elevation }}'
+    below: 0.2
+  condition:
+    - condition: state
+      entity_id: input_boolean.vacances
+      state: 'on'
   action:
     - service: switch.turn_off
       entity_id: switch.volet_salon
@@ -41,7 +60,7 @@
     platform: numeric_state
     entity_id: sun.sun
     value_template: '{{ state.attributes.elevation }}'
-    below: 0.5
+    below: 0.2
   condition:
     - condition: state
       entity_id: input_boolean.volets
@@ -49,6 +68,9 @@
     - condition: state
       entity_id: device_tracker.cc61e5bfb0cb
       state: 'not_home'
+    - condition: state
+      entity_id: input_boolean.vacances
+      state: 'off'
   action:
     - service: notify.notifier_seb
       data:
@@ -86,16 +108,16 @@
 
 - alias: fermer en partie les volets si trop chaud
   trigger:
-    platform: numeric_state
-    entity_id: sensor.broadlink_sensor_temperature
-    above: 27.0
+    platform: state
+    entity_id: sensor.broadlinklight 
+    to: 'lumineux'
   condition:
     - condition: state
       entity_id: input_boolean.volets
       state: 'on'
-    - condition: state
-      entity_id: sensor.broadlinklight
-      state: 'lumineux'
+    - condition: numeric_state
+      entity_id: sensor.broadlink_sensor_temperature
+      above: 27.0
   action:
     - service: switch.turn_off
       entity_id: switch.volet_salon

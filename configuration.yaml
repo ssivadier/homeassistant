@@ -57,6 +57,11 @@ notify:
     platform: telegram
     chat_id: !secret telegram_chatklem
 
+camera: 
+  - platform: local_file
+    file_path: /home/homeassistant/.homeassistant/pics/qrcode_wifi.png
+    name: qrcode
+   
 tts:
   platform: google
   language: 'fr'
@@ -74,7 +79,9 @@ group: !include_dir_merge_named group
 
 media_player:
   - platform: cast
-
+  - platform: squeezebox
+    host: 192.168.1.106
+    
 input_slider: 
   alarmhour:
     name: Hour

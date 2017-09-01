@@ -137,3 +137,12 @@ a0f4599be81b:
   picture:
   track: true
   vendor: SAMSUNG ELECTRO MECHANICS CO., LTD.
+
+6045bd7f8128:
+  hide_if_away: false
+  icon:
+  mac: 60:45:BD:7F:81:28
+  name: 6045bd7f8128
+  picture:
+  track: true
+  vendor: Microsoft
