@@ -29,14 +29,14 @@ logbook:
 
 sun:
 
-device_tracker:
-  - platform: tplink
-    host: !secret tplink_ip
-    username: !secret tplink_user
-    password: !secret tplink_pass
-    interval_seconds: 120
-    consider_home: 180
-    track_new_devices: yes
+#device_tracker:
+#  - platform: tplink
+#    host: !secret tplink_ip
+#    username: !secret tplink_user
+#    password: !secret tplink_pass
+#    interval_seconds: 120
+#    consider_home: 180
+#    track_new_devices: yes
 
 google:
   client_id: !secret google_id
@@ -81,6 +81,20 @@ media_player:
   - platform: cast
   - platform: squeezebox
     host: 192.168.1.106
+    
+mqtt:
+  broker: 192.168.1.30
+  port: 1883
+  keepalive: 60
+
+emulated_hue:
+  type: google_home
+  host_ip: 192.168.1.30
+  listen_port: 80
+  expose_by_default: true
+  exposed_domains:
+    - light
+    - switch
     
 input_slider: 
   alarmhour:

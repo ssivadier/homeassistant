@@ -1,0 +1,50 @@
+- alias: 'Demande des infos traffic'
+  hide_entity: true
+  trigger:
+    platform: event
+    event_type: telegram_command
+    event_data:
+      command: '/trafficseb'
+  action:
+    - service: notify.notifier_seb
+      data:
+        message: "Monsieur, Il vous faudra {{ states.sensor.maps_travail_domicile_seb.state }} minutes pour rentrer du travail."
+
+- alias: 'Demande des infos traffic'
+  hide_entity: true
+  trigger:
+    platform: event
+    event_type: telegram_command
+    event_data:
+      command: '/trafficklem'
+  action:
+    - service: notify.notifier_klem
+      data:
+        message: "Mademoiselle, Il vous faudra {{ states.sensor.maps_travail_domicile_klem.state }} minutes pour rentrer du travail."
+
+- alias: 'Aide'
+  hide_entity: true
+  trigger:
+    platform: event
+    event_type: telegram_command
+    event_data:
+      command: '/aide'
+  action:
+    - service: notify.notifier_seb
+      data:
+        message: "Voici la liste des commandes."
+        data:
+          keyboard:
+            - '/volets'
+            - '/vacances'
+            - '/trafficseb'
+            - '/trafficklem'
+    - service: notify.notifier_klem
+      data:
+        message: "Voici la liste des commandes."
+        data:
+          keyboard:
+            - '/volets'
+            - '/vacances'
+            - '/trafficseb'
+            - '/trafficklem'

@@ -1,4 +1,4 @@
-- alias: fermer les volets du salon quand la nuit tombe et que je suis a la maison
+- alias: fermer les volets du salon quand la nuit tombe
   trigger:
     platform: numeric_state
     entity_id: sun.sun
@@ -8,35 +8,13 @@
     - condition: state
       entity_id: input_boolean.volets
       state: 'on'
-    - condition: state
-      entity_id: device_tracker.cc61e5bfb0cb
-      state: 'home'
-    - condition: state
-      entity_id: input_boolean.vacances
-      state: 'off'
   action:
     - service: switch.turn_off
       entity_id: switch.volet_salon
     - service: switch.turn_off
       entity_id: switch.volet_chambre
 
-- alias: fermer les volets du salon si le mode vacance est active
-  trigger:
-    platform: numeric_state
-    entity_id: sun.sun
-    value_template: '{{ state.attributes.elevation }}'
-    below: 0.2
-  condition:
-    - condition: state
-      entity_id: input_boolean.vacances
-      state: 'on'
-  action:
-    - service: switch.turn_off
-      entity_id: switch.volet_salon
-    - service: switch.turn_off
-      entity_id: switch.volet_chambre
-
-- alias: ouvrir les volets du salon quand le jour se leve et que je suis a la maison
+- alias: ouvrir les volets du salon quand le jour se leve et qu'il n'y a pas d'invité
   trigger:
     platform: sun
     event: sunrise
@@ -47,64 +25,52 @@
     - condition: state
       entity_id: input_boolean.guest_mode
       state: 'off'
-    - condition: state
-      entity_id: device_tracker.cc61e5bfb0cb
-      state: 'home'
   action:
     service: switch.turn_on
     entity_id: switch.volet_salon
 
-- alias: Fermer les volets si je ne suis pas a la maison
+    
+- alias: 'Demande du mode volets'
   hide_entity: true
   trigger:
-    platform: numeric_state
-    entity_id: sun.sun
-    value_template: '{{ state.attributes.elevation }}'
-    below: 0.2
-  condition:
-    - condition: state
-      entity_id: input_boolean.volets
-      state: 'on'
-    - condition: state
-      entity_id: device_tracker.cc61e5bfb0cb
-      state: 'not_home'
-    - condition: state
-      entity_id: input_boolean.vacances
-      state: 'off'
+    platform: event
+    event_type: telegram_command
+    event_data:
+      command: '/volets'
   action:
     - service: notify.notifier_seb
       data:
-        message: 'Monsieur, Voulez vous fermer les volets ?'
+        message: "Monsieur, {%- if states.input_boolean.volets.status == 'on' -%} la gestion automatique des volets est activée. {%- else -%} la gestion automatique des volets est désactivée.{%- endif -%} Voulez vous changer la gestion automatique des volets ?"
         data:
           keyboard:
-            - '/Fermer'
-            - '/Laisser'
+            - '/ActiverVolets'
+            - '/DesactiverVolets'
 
-- alias: 'Confirmation de fermeture si je ne suis pas a la maison'
+- alias: 'Activation de la gestion automatique des volets'
   trigger:
     platform: event
     event_type: telegram_command
     event_data:
-      command: '/Fermer'
+      command: '/ActiverVolets'
   action:
-    - service: switch.turn_off
-      entity_id: switch.volet_salon
-    - service: switch.turn_off
-      entity_id: switch.volet_chambre
     - service: notify.notifier_seb
       data:
-        message: 'Les volets sont fermés.'
+        message: 'Activation de la gestion automatique des volets'
+    - service: homeassistant.turn_on
+      entity_id: input_boolean.volets
 
-- alias: 'Confirmation que ha laisse ouvert si je ne suis pas a la maison'
+- alias: 'Desactivation de la gestion automatique des volets'
   trigger:
     platform: event
     event_type: telegram_command
     event_data:
-      command: '/Laisser'
+      command: '/DesactiverVolets'
   action:
     - service: notify.notifier_seb
       data:
-        message: 'Les volets sont restés ouverts.'
+        message: 'Desactivation de la gestion automatique des volets'
+    - service: homeassistant.turn_off
+      entity_id: input_boolean.volets
 
 - alias: fermer en partie les volets si trop chaud
   trigger:

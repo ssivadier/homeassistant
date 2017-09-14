@@ -236,3 +236,30 @@
   api_key: !secret maps_api
   origin: !secret maison
   destination: !secret travailklem
+
+- platform: google_travel_time
+  name: maps_travail_domicile_seb
+  api_key: !secret maps_api
+  origin: !secret travailseb
+  destination: !secret maison
+  
+- platform: google_travel_time
+  name: maps_travail_domicile_klem
+  api_key: !secret maps_api
+  origin: !secret travailklem
+  destination: !secret maison
+  
+- platform: mqtt_room
+  device_id: ef89f9de9390
+  name: 'nutseb'
+  state_topic: 'happy-bubbles/presence/ha'
+  timeout: 5
+  away_timeout: 60 
+
+- platform: mqtt_room
+  device_id: e2c56db5dffb48d2b060d0f5a71096e0_0000_0006
+  name: 'beaconklem'
+  state_topic: 'happy-bubbles/presence/ha'
+  timeout: 5
+  away_timeout: 60
+

@@ -5,6 +5,8 @@
       - group.ymeteotoday
       - group.trajets
       - mediaplayer.cuisine
+      - sensor.nutseb
+      - sensor.beaconklem
       #      - group.presence
 
   salon:
