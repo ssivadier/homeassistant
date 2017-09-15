@@ -1,0 +1,130 @@
+- alias: 'Dernier depart de la maison klem'
+  hide_entity: true
+  trigger:
+   - platform: state
+     entity_id: sensor.beaconklem
+     from: 'home'
+     to: 'away'
+  condition:
+    - condition: time
+      before: '10:00'
+    - condition: state
+      entity_id: sensor.nutseb
+      to: 'away'
+  action:
+    - service: light.turn_off
+      entity_id: group.lumieressalon
+    - service: light.turn_off
+      entity_id: group.lumiereschambre
+    - service: switch.turn_off
+      entity_id: switch.television
+    - service: switch.turn_off
+      entity_id: switch.chromecast
+    - service: switch.turn_off
+      entity_id: switch.lampe_salon
+    - service: switch.turn_off
+      entity_id: switch.wii
+
+- alias: 'Dernier depart de la maison seb'
+  hide_entity: true
+  trigger:
+   - platform: state
+     entity_id: sensor.nutseb
+     from: 'home'
+     to: 'away'
+  condition:
+    - condition: time
+      before: '10:00'
+    - condition: state
+      entity_id: sensor.beaconklem
+      to: 'away'
+  action:
+    - service: light.turn_off
+      entity_id: group.lumieressalon
+    - service: light.turn_off
+      entity_id: group.lumiereschambre
+    - service: light.turn_off
+      entity_id: group.lumierescouloir
+    - service: switch.turn_off
+      entity_id: switch.television
+    - service: switch.turn_off
+      entity_id: switch.chromecast
+    - service: switch.turn_off
+      entity_id: switch.lampe_salon
+    - service: switch.turn_off
+      entity_id: switch.wii
+
+- alias: 'Premier arrive a la maison klem'
+  hide_entity: true
+  trigger:
+   - platform: state
+     entity_id: sensor.beaconklem
+     from: 'away'
+     to: 'home'
+  condition:
+    - condition: state
+      entity_id: sensor.nutseb
+      to: 'away'
+  action:
+    - service: switch.turn_on
+      entity_id: switch.television
+    - service: switch.turn_on
+      entity_id: switch.chromecast
+    - service: switch.turn_on
+      entity_id: switch.lampe_salon
+
+- alias: 'Premier arrive a la maison seb'
+  hide_entity: true
+  trigger:
+   - platform: state
+     entity_id: sensor.nutseb
+     from: 'away'
+     to: 'home'
+  condition:
+    - condition: state
+      entity_id: sensor.beaconklem
+      to: 'away'
+  action:
+    - service: switch.turn_on
+      entity_id: switch.television
+    - service: switch.turn_on
+      entity_id: switch.chromecast
+    - service: switch.turn_on
+      entity_id: switch.lampe_salon
+
+
+- alias: 'Seb rentre tard et personne a la maison'
+  hide_entity: true
+  trigger:
+   - platform: state
+     entity_id: sensor.nutseb
+     from: 'away'
+     to: 'home'
+  condition:
+    - condition: state
+      entity_id: sensor.beaconklem
+      to: 'away'
+    - condition: sun
+      after: sunset
+  action:
+    - service: light.turn_on
+      entity_id: group.lumierescouloir
+
+
+- alias: 'Klem rentre tard et personne a la maison'
+  hide_entity: true
+  trigger:
+   - platform: state
+     entity_id: sensor.beaconklem
+     from: 'away'
+     to: 'home'
+  condition:
+    - condition: state
+      entity_id: sensor.nutseb
+      to: 'away'
+    - condition: sun
+      after: sunset
+  action:
+    - service: light.turn_on
+      entity_id: group.lumierescouloir
+

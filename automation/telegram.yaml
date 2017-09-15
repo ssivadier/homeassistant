@@ -48,3 +48,35 @@
             - '/vacances'
             - '/trafficseb'
             - '/trafficklem'
+            
+- alias: 'Depart de la maison seb'
+  hide_entity: true
+  trigger:
+   - platform: state
+     entity_id: sensor.nutseb
+     from: 'home'
+     to: 'away'
+  condition:
+    - condition: time
+      after: '6:00'
+      before: '9:00'
+  action:
+    - service: notify.notifier_seb
+      data:
+        message: "Bonne journée Monsieur. Il vous faudra {{ states.sensor.maps_domicile_travail_seb.state }} minutes pour aller au travail."
+ 
+- alias: 'Depart de la maison klem'
+  hide_entity: true
+  trigger:
+   - platform: state
+     entity_id: sensor.beaconklem
+     from: 'home'
+     to: 'away'
+  condition:
+    - condition: time
+      after: '7:00'
+      before: '9:00'
+  action:
+    - service: notify.notifier_klem
+      data:
+        message: "Bonne journée klem. Il vous faudra {{ states.sensor.maps_domicile_travail_klem.state }} minutes pour aller au travail."

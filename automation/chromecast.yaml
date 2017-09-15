@@ -28,3 +28,21 @@
         transition: 50
         brightness: 15
 
+- alias: "Retour maison Seb"
+  trigger:
+   - platform: state
+     entity_id: sensor.nutseb
+     from: 'away'
+     to: 'home'
+  condition:
+    - condition: time
+      after: '16:00'
+      before: '23:00'
+  action:
+    - delay:
+        seconds: 20
+    - service: tts.google_say
+      entity_id: media_player.salon
+      data_template: 
+        message: "{{ ['Heureuse de vous voir monsieur','Bon retour à la maison, monsieur'] | random }}. J'espère que votre journée a été agréable."
+        cache: false
