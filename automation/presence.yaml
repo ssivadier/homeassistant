@@ -10,7 +10,7 @@
       before: '10:00'
     - condition: state
       entity_id: sensor.nutseb
-      to: 'away'
+      state: 'away'
   action:
     - service: light.turn_off
       entity_id: group.lumieressalon
@@ -37,7 +37,7 @@
       before: '10:00'
     - condition: state
       entity_id: sensor.beaconklem
-      to: 'away'
+      state: 'away'
   action:
     - service: light.turn_off
       entity_id: group.lumieressalon
@@ -64,7 +64,7 @@
   condition:
     - condition: state
       entity_id: sensor.nutseb
-      to: 'away'
+      state: 'away'
   action:
     - service: switch.turn_on
       entity_id: switch.television
@@ -83,7 +83,7 @@
   condition:
     - condition: state
       entity_id: sensor.beaconklem
-      to: 'away'
+      state: 'away'
   action:
     - service: switch.turn_on
       entity_id: switch.television
@@ -103,7 +103,7 @@
   condition:
     - condition: state
       entity_id: sensor.beaconklem
-      to: 'away'
+      state: 'away'
     - condition: sun
       after: sunset
   action:
@@ -121,7 +121,7 @@
   condition:
     - condition: state
       entity_id: sensor.nutseb
-      to: 'away'
+      state: 'away'
     - condition: sun
       after: sunset
   action:

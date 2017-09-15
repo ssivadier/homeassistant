@@ -29,15 +29,6 @@ logbook:
 
 sun:
 
-#device_tracker:
-#  - platform: tplink
-#    host: !secret tplink_ip
-#    username: !secret tplink_user
-#    password: !secret tplink_pass
-#    interval_seconds: 120
-#    consider_home: 180
-#    track_new_devices: yes
-
 google:
   client_id: !secret google_id
   client_secret: !secret google_secret
